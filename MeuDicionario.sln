@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDicionario", "MeuDicionario\MeuDicionario.csproj", "{8D1B9B81-CD72-4A84-B9E2-DCAE64D4D405}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeuDicionario", "MeuDicionario\MeuDicionario.csproj", "{6436D5BC-D34E-4621-8C79-14A92A789BE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8D1B9B81-CD72-4A84-B9E2-DCAE64D4D405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D1B9B81-CD72-4A84-B9E2-DCAE64D4D405}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D1B9B81-CD72-4A84-B9E2-DCAE64D4D405}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D1B9B81-CD72-4A84-B9E2-DCAE64D4D405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6436D5BC-D34E-4621-8C79-14A92A789BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6436D5BC-D34E-4621-8C79-14A92A789BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6436D5BC-D34E-4621-8C79-14A92A789BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6436D5BC-D34E-4621-8C79-14A92A789BE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DC5A7005-9D41-4868-8DB2-12EC45CE384D}
+		SolutionGuid = {12EB9833-E7C9-4D45-83B7-E44B04FC3FB1}
 	EndGlobalSection
 EndGlobal
