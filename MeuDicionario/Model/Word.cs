@@ -7,7 +7,6 @@ namespace MeuDicionario.Model
     {
 
         [Key]
-        [JsonIgnore]
         public int Id { get; set; }
         [Required]
         [StringLength(255)]

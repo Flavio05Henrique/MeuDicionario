@@ -23,12 +23,12 @@ namespace MeuDicionario.Controllers
         public IActionResult Create([FromBody]WordCreate wordCreate)
         {
             if (wordCreate.Name.Contains(" ")) return BadRequest("Não é uma palavra");
-            if (_wordDAL.Has(e => e.Name.Equals(wordCreate.Name))) return Conflict("Palavra já existe");
-
             var word = _mapper.Map<Word>(wordCreate);
+            if (_wordDAL.Has(e => e.Name.Equals(word.Name))) return Conflict("Palavra já existe");
+
 
             _wordDAL.Add(word);
-            return CreatedAtAction(nameof(FindOne), new {Id = word.Id}, word);
+            return CreatedAtAction(nameof(FindById), new {Id = word.Id}, word);
         }
 
         [HttpDelete("{id}")] 
@@ -41,11 +41,21 @@ namespace MeuDicionario.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult FindOne(int id)
+        public IActionResult FindById(int id)
         {
             var word = _wordDAL.FindBy(e => e.Id == id);
             if (word == null) return NotFound("Palavra não existe");
             return Ok(word);
+        }
+
+        [HttpGet("search")]
+        public IActionResult FindByWord([FromQuery]string word)
+        {
+            var w = new Word(word, "");
+            var wordSearch = _wordDAL.FindBy(e => e.Name.Equals(w.Name));
+            if (wordSearch == null) return NotFound("Palavra não existe");
+            Console.WriteLine(wordSearch);
+            return Ok(wordSearch);
         }
 
         [HttpGet]
