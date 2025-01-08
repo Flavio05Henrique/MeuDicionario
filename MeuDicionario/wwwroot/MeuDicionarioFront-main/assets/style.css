@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: none;
+}
+
+body {
+  display: flex;
+}
+
+button {
+  cursor: pointer;
+}
+
+.menu {
+  width: 20%;
+  height: 100vh;
+  background-color: rgb(111, 158, 230);
+  display: flex;
+  flex-direction: column;
+  padding: 150px 0;
+  align-items: center;
+}
+.menu__logo {
+  font-size: 8rem;
+  margin-bottom: 15px;
+}
+.menu menu li {
+  list-style: none;
+}
+.menu menu li button {
+  width: 150px;
+  margin: 10px 0;
+  text-align: start;
+  padding: 5px;
+  font-size: 2rem;
+  border: none;
+  border-radius: 5px;
+}
+.menu .message__container {
+  background-color: aquamarine;
+  width: 90%;
+  height: 50px;
+  margin-top: 100px;
+  justify-self: flex-end;
+}
+.menu .message__container .message {
+  padding: 5px;
+  font-size: 1.5rem;
+}
+
+.view {
+  width: 80%;
+  height: 100vh;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.view input {
+  width: 100%;
+  padding: 5px 15px;
+  font-size: 2.5rem;
+  border-radius: 999px;
+  outline: none;
+  border: none;
+}
+.view .search {
+  position: relative;
+  width: 60%;
+  margin: 15px 0;
+}
+.view .search input {
+  width: 100%;
+}
+.view .search input:focus ~ label, .view .search input:valid ~ label {
+  top: 5%;
+  left: 15%;
+  color: black;
+  transition: 0.5s;
+  font-size: 1.5rem;
+}
+.view .search label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  font-weight: 500;
+  color: gray;
+  cursor: text;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+}
+.view .newWord {
+  overflow: hidden;
+  height: 250px;
+  transition: 0.5s;
+}
+.view .newWord legend {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+.view .newWord label {
+  font-size: 2rem;
+}
+.view .newWord button {
+  font-size: 1.5rem;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin: 15px 0;
+  margin-left: 100%;
+  transform: translate(-100%);
+}
+.view .words {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 60%;
+  gap: 10px;
+  background-color: rgb(90, 90, 90);
+  border-radius: 5px;
+  padding: 15px;
+  transition: 0.5s;
+}
+.view .words__container {
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+}
+.view .words__container::-webkit-scrollbar {
+  width: 0px;
+}
+.view .words__controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 10%;
+}
+.view .words__controls button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 100%;
+  transition: 0.5s;
+}
+.view .words__controls button:hover {
+  transform: rotate(30deg);
+  background-color: rgba(255, 255, 255, 0.116);
+}
+.view .words__controls .refresh {
+  background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/arrows-rotate-solid.svg) no-repeat center center;
+  background-size: 35px;
+}
+.view .words__controls .plus {
+  background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/plus-solid.svg) no-repeat center center;
+}
+.view .words .word {
+  display: inline-block;
+  font-size: 2rem;
+  background-color: gray;
+  padding: 5px 7px;
+  margin: 5px 5px;
+  border-radius: 999px;
+  border: 3px solid black;
+  border-right: 5px solid black;
+  border-bottom: 5px solid black;
+  cursor: pointer;
+}
+.view .words__cardContainer {
+  height: 40%;
+  background-color: bisque;
+  transition: 0.5s;
+}
+.view .words__card {
+  display: none;
+  position: absolute;
+  width: 400px;
+  background-color: rgb(130, 129, 129);
+  padding: 5px;
+  border-radius: 5px;
+}
+.view .words__card .controls {
+  position: absolute;
+  left: 100%;
+  transform: translate(-115%, -125%);
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.view .words__card .controls button {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: none;
+}
+.view .words__card .controls .close {
+  background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/x-solid.svg) no-repeat center center;
+}
+.view .words__card h3 {
+  font-size: 3rem;
+}
+.view .words__card p {
+  font-size: 2rem;
+  background-color: rgb(202, 196, 196);
+  padding: 5px;
+}
+.view .wordsReduce {
+  height: 40%;
+}
+
+.heightZero {
+  height: 0px !important;
+  transition: 0.5s;
+}/*# sourceMappingURL=style.css.map */

@@ -5,12 +5,40 @@
       "PackagePath": "staticwebassets\\MeuDicionario.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main.zip",
-      "PackagePath": "staticwebassets\\MeuDicionarioFront-main.zip"
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_reset.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_reset.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_secMenu.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_secMenu.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_secView.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_secView.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_utilitys.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_utilitys.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\arrows-rotate-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\arrows-rotate-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\plus-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\plus-solid.svg"
     },
     {
       "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\style.css",
       "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\style.css.map",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\assets\\style.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\style.scss"
     },
     {
       "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\index.html",
@@ -19,6 +47,10 @@
     {
       "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\src\\main.js",
       "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\src\\messageManager.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\messageManager.js"
     },
     {
       "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\wwwroot\\MeuDicionarioFront-main\\src\\viewManager.js",

@@ -55,13 +55,13 @@ namespace MeuDicionario.Controllers
             var wordSearch = _wordDAL.FindBy(e => e.Name.Equals(w.Name));
             if (wordSearch == null) return NotFound("Palavra não existe");
             Console.WriteLine(wordSearch);
-            return Ok(wordSearch);
+            return Ok(wordSearch);  
         }
 
         [HttpGet]
-        public IActionResult List([FromQuery]int skip = 0, [FromQuery]int take = 50)
+        public IActionResult List([FromQuery]int skip = 0, [FromQuery]int take = 3)
         {
-            var list = _wordDAL.GetSome(skip, take);
+            var list = _wordDAL.GetSome(skip, take, e => e.Id);
             return Ok(list);
         }
 

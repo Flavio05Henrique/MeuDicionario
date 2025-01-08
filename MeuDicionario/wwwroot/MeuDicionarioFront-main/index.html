@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/style.css">
+        <title>MeuDicionario</title>
+    </head>
+    <body>
+        <section class="menu">
+            <h1 class="menu__logo">Logo</h1>
+            <menu>
+                <li><button data="openAdd">Adicionar</button></li>
+                <li><button>Revisar</button></li>
+                <li><button>Conjuntos</button></li>
+            </menu>
+            <div class="message__container" data="messageContainer">
+                <div class="message">
+                    manager
+                </div>
+            </div>
+        </section>
+        <section class="view">
+            <form class="search" data="search">
+                <input type="text" id="search" required >
+                <label for="search">Buscar palavra</label>
+            </form>
+            <form class="newWord heightZero" data="newWord" id="nw">
+                <legend>Nova palavra</legend>
+                <label for="word">Palavra</label>
+                <input type="text" name="word" id="word" required>
+                <label for="wordDescription">Descrição</label>
+                <input type="" name="wordDescription" id="wordDescription" required>
+                <button type="submit">Adicionar</button>
+            </form>
+            
+            <div class="words" data-words>
+                <div class="words__controls">
+                    <button class="plus" data="plus"></button>
+                    <button class="refresh" title="refresh" data="refresh"></button>
+                </div>
+                <div class="words__container" data="wordsContainer">
+                    <!-- <div class="word">Palavaaaaaaaa</div>
+                    <div class="word" id="">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palaaaaaaaaavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavaaaaaara</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavaaaaaaaa</div>
+                    <div class="word" id="">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palaaaaaaaaavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavaaaaaara</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavaaaaaaaa</div>
+                    <div class="word" id="">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palaaaaaaaaavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavra</div>
+                    <div class="word">Palavaaaaaara</div>
+                    <div class="word">Palavra</div> -->
+                </div>
+            </div>
+            <div class="words__cardContainer heightZero" data="word_cardContainer" id="wcc">
+                <div class="words__card" id="0" data-card>
+                    <div class="controls">
+                        <button class="exclude"></button>
+                        <button class="close"></button>
+                    </div>
+                    <h3 data-name>none</h3>
+                    <p data-meaning>none</p>
+                </div>
+            </div>
+        </section>
+    </body>
+    <script type="module" src="src/main.js"></script>
+</html>

@@ -16,9 +16,9 @@ namespace MeuDicionario.Infra
             return _context.Set<T>().ToList();
         }
 
-        public IEnumerable<T> GetSome(int skip, int take)
+        public IEnumerable<T> GetSome(int skip, int take, Func<T, int> func)
         {
-            return _context.Set<T>().ToList().Skip(skip).Take(take);
+            return _context.Set<T>().OrderByDescending(func).Skip(skip).Take(take).ToList();
         }
 
         public void Add(T item)
