@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\infra\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\infra\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\controllers\\wordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\controllers\\wordcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\infra\\mydictionarycontex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\infra\\mydictionarycontex.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\infra\\searchwordsforrevision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\infra\\searchwordsforrevision.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\controllers\\textcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\controllers\\textcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\model\\text.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\model\\text.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|c:\\users\\flavio henrique\\documents\\estudos\\c#\\meudicionario\\meudicionario\\infra\\dals\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6436D5BC-D34E-4621-8C79-14A92A789BE8}|MeuDicionario\\MeuDicionario.csproj|solutionrelative:meudicionario\\infra\\dals\\dal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +38,99 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DAL.cs",
-              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Infra\\DAL.cs",
-              "RelativeDocumentMoniker": "MeuDicionario\\Infra\\DAL.cs",
-              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Infra\\DAL.cs",
-              "RelativeToolTip": "MeuDicionario\\Infra\\DAL.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAIwBIAAABFAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "TextController.cs",
+              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Controllers\\TextController.cs",
+              "RelativeDocumentMoniker": "MeuDicionario\\Controllers\\TextController.cs",
+              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Controllers\\TextController.cs",
+              "RelativeToolTip": "MeuDicionario\\Controllers\\TextController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T17:49:41.115Z",
+              "WhenOpened": "2025-01-27T18:10:03.566Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "WordController.cs",
-              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Controllers\\WordController.cs",
-              "RelativeDocumentMoniker": "MeuDicionario\\Controllers\\WordController.cs",
-              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Controllers\\WordController.cs",
-              "RelativeToolTip": "MeuDicionario\\Controllers\\WordController.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAowD4AAAAJAAAAAAAAAA==",
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "MeuDicionario\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Properties\\launchSettings.json",
+              "RelativeToolTip": "MeuDicionario\\Properties\\launchSettings.json",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-02T20:06:35.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MyDictionaryContex.cs",
+              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Infra\\MyDictionaryContex.cs",
+              "RelativeDocumentMoniker": "MeuDicionario\\Infra\\MyDictionaryContex.cs",
+              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Infra\\MyDictionaryContex.cs",
+              "RelativeToolTip": "MeuDicionario\\Infra\\MyDictionaryContex.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T17:32:05.321Z"
+              "WhenOpened": "2025-02-02T19:42:49.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Program.cs",
+              "RelativeDocumentMoniker": "MeuDicionario\\Program.cs",
+              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Program.cs*",
+              "RelativeToolTip": "MeuDicionario\\Program.cs*",
+              "ViewState": "AgIAABgAAAAAAAAAAAAEwCAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T19:37:33.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SearchWordsForRevision.cs",
+              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Infra\\SearchWordsForRevision.cs",
+              "RelativeDocumentMoniker": "MeuDicionario\\Infra\\SearchWordsForRevision.cs",
+              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Infra\\SearchWordsForRevision.cs",
+              "RelativeToolTip": "MeuDicionario\\Infra\\SearchWordsForRevision.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwBcAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T14:43:27.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DAL.cs",
+              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Infra\\DALs\\DAL.cs",
+              "RelativeDocumentMoniker": "MeuDicionario\\Infra\\DALs\\DAL.cs",
+              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Infra\\DALs\\DAL.cs",
+              "RelativeToolTip": "MeuDicionario\\Infra\\DALs\\DAL.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAvwB8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T22:12:35.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Text.cs",
+              "DocumentMoniker": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Model\\Text.cs",
+              "RelativeDocumentMoniker": "MeuDicionario\\Model\\Text.cs",
+              "ToolTip": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionario\\Model\\Text.cs",
+              "RelativeToolTip": "MeuDicionario\\Model\\Text.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAnwBcAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T18:42:18.003Z",
+              "EditorCaption": ""
             }
           ]
         }

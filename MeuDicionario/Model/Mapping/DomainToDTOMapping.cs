@@ -8,6 +8,7 @@ namespace MeuDicionario.Model.Mapping
         public DomainToDTOMapping()
         {
             CreateMap<WordCreate, Word>();
+            CreateMap<TextCreate, Text>();
         }
     }
 }

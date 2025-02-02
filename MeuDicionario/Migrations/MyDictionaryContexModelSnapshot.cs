@@ -22,6 +22,89 @@ namespace MeuDicionario.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MeuDicionario.Model.Revision", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("WordRefId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WordRefId");
+
+                    b.ToTable("Revision");
+                });
+
+            modelBuilder.Entity("MeuDicionario.Model.RevisionLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RevisionLogs");
+                });
+
+            modelBuilder.Entity("MeuDicionario.Model.Text", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("TextItSelf")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("WordsInText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Texts");
+                });
+
+            modelBuilder.Entity("MeuDicionario.Model.TextWord", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("TextRefId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WordRefId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TextRefId");
+
+                    b.HasIndex("WordRefId");
+
+                    b.ToTable("TextWords");
+                });
+
             modelBuilder.Entity("MeuDicionario.Model.Word", b =>
                 {
                     b.Property<int>("Id")
@@ -46,6 +129,36 @@ namespace MeuDicionario.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Words");
+                });
+
+            modelBuilder.Entity("MeuDicionario.Model.Revision", b =>
+                {
+                    b.HasOne("MeuDicionario.Model.Word", "WordRef")
+                        .WithMany()
+                        .HasForeignKey("WordRefId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WordRef");
+                });
+
+            modelBuilder.Entity("MeuDicionario.Model.TextWord", b =>
+                {
+                    b.HasOne("MeuDicionario.Model.Text", "TextRef")
+                        .WithMany()
+                        .HasForeignKey("TextRefId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MeuDicionario.Model.Word", "WordRef")
+                        .WithMany()
+                        .HasForeignKey("WordRefId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TextRef");
+
+                    b.Navigation("WordRef");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,0 +1,192 @@
+.view__texts {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--cor-1);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 
+        "text text text words words"
+        "text text text words words"
+        "text text text words words"
+        "text text text tools tools"
+        "text text text tools tools"
+    ;
+    align-items: center;
+    justify-items: center;
+    transform: translate(100%);
+    transition: .5s;
+
+    .texts {
+        width: 98%;
+        height: 98%;
+        grid-area: text;
+        background-color: var(--cor-3);
+        overflow: hidden;
+
+        .tools {
+            width: 100%;
+            height: 50px;
+            background-color: var(--cor-2);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 15px;
+            padding: 15px;
+            
+            button {
+                width: 30px;
+                height: 30px;
+                border: none;
+            }
+
+            .return {
+                background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/icons-low/arrow-left-solid.svg) no-repeat center center;
+                background-size: 70%;
+            }
+
+            .add {
+                background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/icons-low/plus-solid.svg) no-repeat center center;
+                background-size: 70%;
+            }
+
+            .search {
+                background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/icons-low/magnifying-glass-solid.svg) no-repeat center center;
+                background-size: 70%;
+            }
+
+            .doubt {
+                background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/icons-low/question-solid.svg) no-repeat center center;
+                background-size: 55%;
+            }
+
+            .delete {
+                background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/icons-low/trash-solid.svg) no-repeat center center;
+                background-size: 70%;
+            }
+
+            .edit {
+                background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/icons-low/pen-solid.svg) no-repeat center center;
+                background-size: 70%;
+            }
+
+            .load {
+                background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/icons-low/arrows-rotate-solid.svg) no-repeat center center;
+                background-size: 80%;
+            }
+
+            .extra {
+                display: flex;
+                width: 70px;
+                overflow: hidden;
+                transition: .5s;
+            }
+        }
+        .container {
+            height: 100%;
+            align-items: center;
+            overflow: scroll;
+            position: relative;
+
+            &::-webkit-scrollbar {
+                width: 0px;
+            }
+
+            .text__card {
+                width: 95%;
+                background-color: var(--cor-2);
+                padding: 10px;
+                border-radius: 5px;
+                margin: 40px auto;
+                cursor: pointer;
+                h3 {
+                    font-size: 3rem;
+                    margin-bottom: 8px;
+                    color: var(--cor-1);
+                }
+                p {
+                    font-size: 2rem;
+                    background-color: var(--cor-1);
+                    color: var(--cor-2);
+                    padding: 5px;
+                    overflow: hidden;
+                    max-height: 250px;
+                }
+            }
+            
+            button {
+                display: block;
+                width: 90%;
+                height: 50px;
+                border: none;
+                transition: .5s;
+                margin: auto;
+                margin-bottom: 25px;
+                background: url(https://localhost:7167/MeuDicionarioFront-main/assets/img/arrows-rotate-solid.svg) no-repeat center center; 
+                
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.305);
+                    transition: .5s;
+                }
+            }
+
+            .text__cardExpanded {
+                width: 100%;
+                height: 100%;
+                background-color: 
+                var(--cor-2);
+                padding: 15px;
+
+                h3 {
+                    font-size: 3rem;
+                    color: var(--cor-1);
+                }
+
+                p {
+                    height: 90%;
+                    font-size: 2rem;
+                    background-color: var(--cor-1);
+                    color: var(--cor-2);
+                    padding: 5px;
+                    overflow: scroll;
+
+                    &::-webkit-scrollbar {
+                        width: 0px;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .words {
+        grid-area: words;
+        width: 98%;
+        height: 98%;
+        position: relative;
+        padding-top: 40px;
+        overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 0px;
+            }
+
+        h3 {
+            background-color: var(--cor-2);
+            color: var(--cor-1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            font-size: 3rem;
+        }
+    }
+
+    .card__tools {
+        grid-area: tools;
+        justify-self: center;
+        align-self: center;
+    }
+
+}

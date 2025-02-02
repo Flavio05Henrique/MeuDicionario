@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MeuDicionario.Infra;
+using MeuDicionario.Infra.DALs;
 using MeuDicionario.Model;
 using MeuDicionario.Model.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +11,13 @@ namespace MeuDicionario.Controllers
     public class WordController : ControllerBase
     {
         private readonly WordDAL _wordDAL;
+        private readonly RevisionDAL _revisionDAL;
         private readonly IMapper _mapper;
 
-        public WordController(WordDAL wordDAL, IMapper mapper)
+        public WordController(WordDAL wordDAL, RevisionDAL revisionDAL, IMapper mapper)
         {
             _wordDAL = wordDAL;
+            _revisionDAL = revisionDAL;
             _mapper = mapper;
         }
 
@@ -34,10 +36,17 @@ namespace MeuDicionario.Controllers
         [HttpDelete("{id}")] 
         public IActionResult Remove(int id)
         {
-            var busca = _wordDAL.FindBy(w => w.Id == id);
-            if (busca == null) return NotFound();
-            _wordDAL.Remove(busca);
-            return Ok(busca);
+            var search = _wordDAL.FindBy(w => w.Id == id);
+            if (search == null) return NotFound();
+            var wordInRevision = _revisionDAL.FindBy(r => r.WordRef.Id == search.Id);
+
+            if (wordInRevision != null)
+            {
+                _revisionDAL.Remove(wordInRevision);
+            }
+
+            _wordDAL.Remove(search);
+            return NoContent();
         }
 
         [HttpGet("{id}")]
@@ -61,7 +70,8 @@ namespace MeuDicionario.Controllers
         [HttpGet]
         public IActionResult List([FromQuery]int skip = 0, [FromQuery]int take = 3)
         {
-            var list = _wordDAL.GetSome(skip, take, e => e.Id);
+            var list = _wordDAL.ListOrderByLastFirst(skip, take, e => e.Id);
+            if (list.Count() == 0) return NotFound("Sem registros");
             return Ok(list);
         }
 
