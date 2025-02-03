@@ -14,7 +14,7 @@ namespace MeuDicionario.Model
         [Required]
         [StringLength(1000)]
         public string Meaning { get; set; }
-        public DateTime LastSeen { get; private set; }
+        public DateTime LastSeen { get; set; }
        
         public Word(string name, string meaning)
         {

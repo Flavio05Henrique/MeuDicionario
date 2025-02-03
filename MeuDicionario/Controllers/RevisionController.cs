@@ -10,10 +10,11 @@ namespace MeuDicionario.Controllers
     public class RevisionController : ControllerBase
     {
         private readonly RevisionDAL _revisionDAL;
-
-        public RevisionController(RevisionDAL revisionDAL)
+        private readonly WordDAL _wordDAL;
+        public RevisionController(RevisionDAL revisionDAL, WordDAL wordDAL)
         {
             _revisionDAL = revisionDAL;
+            _wordDAL = wordDAL;
         }
 
         [HttpGet]
@@ -37,6 +38,10 @@ namespace MeuDicionario.Controllers
                 var revisionFound = _revisionDAL.FindBy(e => e.Id == item);
                 if (revisionFound != null)
                 {
+                    var wordFound = _wordDAL.FindBy(e => e.Id == revisionFound.WordRef.Id);
+                    wordFound.LastSeen = DateTime.Now;
+                    _wordDAL.Update(wordFound);
+
                     _revisionDAL.Remove(revisionFound);
                 }
             }

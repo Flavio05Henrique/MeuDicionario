@@ -18,10 +18,13 @@ namespace MeuDicionario.Infra
 
         public void Execute()
         {
-            var differenceBetweenTodayLastDate =
-                Math.Abs((_revionLogContex.GetLast(e => e.Id).Date - DateTime.Now).Days);
+            if(_revionLogContex.GetCount() > 0)
+            {
+                var differenceBetweenTodayLastDate =
+                    Math.Abs((_revionLogContex.GetLast(e => e.Id).Date - DateTime.Now).Days);
 
-            //if (differenceBetweenTodayLastDate == 0) return;
+                if (differenceBetweenTodayLastDate == 0) return;
+            }
 
             UpDateLastRevision();
             GetWordsForRevision();
