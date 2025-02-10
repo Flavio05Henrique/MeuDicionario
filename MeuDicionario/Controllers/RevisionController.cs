@@ -22,7 +22,7 @@ namespace MeuDicionario.Controllers
         {
             var contex = _revisionDAL.GetContex();
 
-            var list = contex.Set<Revision>().Include(r => r.WordRef).ToList();
+            var list = contex.Set<Revision>().Include(r => r.WordRef).Take(50).ToList();
             if (list.Count() == 0) return NotFound("Sem registros");
 
             return Ok(list);

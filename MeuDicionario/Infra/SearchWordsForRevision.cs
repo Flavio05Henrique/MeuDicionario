@@ -45,7 +45,7 @@ namespace MeuDicionario.Infra
         {
             var currentDate = DateTime.Now;
 
-            var list = _wordDAL.FindBySome(e => Math.Abs((e.LastSeen - currentDate).Days) > 7);
+            var list = _wordDAL.FindBySome(e => Math.Abs((e.LastSeen - currentDate).Days) > 3);
 
             foreach (var i in list)
             {

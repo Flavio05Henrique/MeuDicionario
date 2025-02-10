@@ -100,7 +100,7 @@ const cardRevisionWord = () => {
         <div class="result mistakes">${revisionStates.mistakes}</div>
     </div>
     <h3>${word.name}</h3>
-    ${wordsSorted.map(e => `<div class="option" data-i="revisionOption">${e.meaning}</div>`)}
+    ${wordsSorted.map(e => `<div class="option" data-i="revisionOption" id="${e.id}">${e.meaning}</div>`)}
     `
     
     return html
@@ -123,7 +123,8 @@ const shuffleArray = (array)  => {
 
 const clickOptionEvent = (element) => {
     const word = revisionList[currentWordNum].wordRef
-    if(word.meaning.toLowerCase() === element.innerText.toLowerCase()) {
+    
+    if(word.id === parseInt(element.id)) {
         revisionSuccesses()
     } else {
         revisionMistakes()
@@ -138,7 +139,15 @@ const revisionSuccesses = () => {
 
 const revisionMistakes = () => {
     revisionStates.mistakes += 1 
-    nextRevision()
+    const word = revisionList[currentWordNum].wordRef
+    console.log(word)
+    changeContentRevisionContainer(`
+        <h3>${word.name}</h3>
+        <p>${word.meaning}</p>
+    `)
+    setTimeout(() => {
+        nextRevision()
+    },5000)
 }
 
 const nextRevision = () => {
