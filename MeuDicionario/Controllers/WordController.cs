@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MeuDicionario.Infra.DALs;
+using MeuDicionario.Infra;
 using MeuDicionario.Model;
 using MeuDicionario.Model.DTOs;
 using Microsoft.AspNetCore.Mvc;
@@ -10,14 +10,12 @@ namespace MeuDicionario.Controllers
     [Route("/palavra")]
     public class WordController : ControllerBase
     {
-        private readonly WordDAL _wordDAL;
-        private readonly RevisionDAL _revisionDAL;
+        private readonly MyDictionaryContex _dbContex;
         private readonly IMapper _mapper;
 
-        public WordController(WordDAL wordDAL, RevisionDAL revisionDAL, IMapper mapper)
+        public WordController(MyDictionaryContex dbContex, IMapper mapper)
         {
-            _wordDAL = wordDAL;
-            _revisionDAL = revisionDAL;
+            _dbContex = dbContex;
             _mapper = mapper;
         }
 
@@ -26,33 +24,31 @@ namespace MeuDicionario.Controllers
         {
             if (wordCreate.Name.Contains(" ")) return BadRequest("Não é uma palavra");
             var word = _mapper.Map<Word>(wordCreate);
-            if (_wordDAL.Has(e => e.Name.Equals(word.Name))) return Conflict("Palavra já existe");
+            if (_dbContex.Words.Any(e => e.Name.Equals(word.Name))) return Conflict("Palavra já existe");
 
+            _dbContex.Words.Add(word);
+            _dbContex.SaveChanges();
 
-            _wordDAL.Add(word);
             return CreatedAtAction(nameof(FindById), new {Id = word.Id}, word);
         }
 
         [HttpDelete("{id}")] 
         public IActionResult Remove(int id)
         {
-            var search = _wordDAL.FindBy(w => w.Id == id);
-            if (search == null) return NotFound();
-            var wordInRevision = _revisionDAL.FindBy(r => r.WordRef.Id == search.Id);
+            var searchWord = _dbContex.Words.FirstOrDefault(e => e.Id == id);
+            if (searchWord == null) return NotFound();
 
-            if (wordInRevision != null)
-            {
-                _revisionDAL.Remove(wordInRevision);
-            }
+            ClearWordRelactions(searchWord);
 
-            _wordDAL.Remove(search);
+            _dbContex.Words.Remove(searchWord);
+            _dbContex.SaveChanges();
             return NoContent();
         }
 
         [HttpGet("{id}")]
         public IActionResult FindById(int id)
         {
-            var word = _wordDAL.FindBy(e => e.Id == id);
+            var word = _dbContex.Words.FirstOrDefault(e => e.Id == id);
             if (word == null) return NotFound("Palavra não existe");
             return Ok(word);
         }
@@ -61,7 +57,7 @@ namespace MeuDicionario.Controllers
         public IActionResult FindByWord([FromQuery]string word)
         {
             var w = new Word(word, "");
-            var wordSearch = _wordDAL.FindBy(e => e.Name.Equals(w.Name));
+            var wordSearch = _dbContex.Words.FirstOrDefault(e => e.Name.Equals(w.Name));
             if (wordSearch == null) return NotFound("Palavra não existe");
             Console.WriteLine(wordSearch);
             return Ok(wordSearch);  
@@ -70,7 +66,7 @@ namespace MeuDicionario.Controllers
         [HttpGet]
         public IActionResult List([FromQuery]int skip = 0, [FromQuery]int take = 3)
         {
-            var list = _wordDAL.ListOrderByLastFirst(skip, take, e => e.Id);
+            var list = _dbContex.Words.OrderByDescending(e => e.Id).Skip(skip).Take(take);
             if (list.Count() == 0) return NotFound("Sem registros");
             return Ok(list);
         }
@@ -78,11 +74,26 @@ namespace MeuDicionario.Controllers
         [HttpPut("{id}")]
         public IActionResult Change([FromBody] WordCreate word, int id)
         {
-            var wordFound = _wordDAL.FindBy(e => e.Id == id);
+            var wordFound = _dbContex.Words.FirstOrDefault(e => e.Id == id);
             if (wordFound == null) return NotFound("Palavra não existe");
 
-            _wordDAL.Update(_mapper.Map(word, wordFound));
+            _dbContex.Words.Update(_mapper.Map(word, wordFound));
             return NoContent();
+        }
+
+        public void ClearWordRelactions(Word word)
+        {
+            var searchRevision = _dbContex.Revision.FirstOrDefault(e => e.WordRef.Id == word.Id);
+            if (searchRevision != null)
+            {
+                _dbContex.Revision.Remove(searchRevision);
+            }
+            var searchWordInText = _dbContex.TextWords.Where(e => e.TextRef.Id == word.Id);
+            if(searchWordInText.Count() > 0)
+            {
+                _dbContex.TextWords.RemoveRange(searchWordInText);
+            }
+            _dbContex.SaveChanges();
         }
 
     }

@@ -1,5 +1,4 @@
-﻿using MeuDicionario.Infra.DALs;
-using Microsoft.EntityFrameworkCore;
+﻿using MeuDicionario.Infra;
 using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
@@ -38,39 +37,37 @@ namespace MeuDicionario.Model
                 }
             }
 
-            foreach (var lp in listaDePalavras)
-            {
-                Console.WriteLine(lp);
-            }
-
            WordsInText = string.Join(",", listaDePalavras);
         }
 
-        public void SetRelationTextWord(WordDAL wordDAL, TextWordDAL textWordDAL)
+        public void SetRelationTextWord(MyDictionaryContex contex)
         {
             var wordsInText = WordsInText.Split(",");
             var validWors = new List<Word>();
 
-            var textWordList = textWordDAL.FindBySome(e => e.TextRef.Id == this.Id);
-            textWordDAL.RemoveRange(textWordList);
+            var textWordList = contex.TextWords.Where(e => e.TextRef.Id == this.Id);
+            contex.TextWords.RemoveRange(textWordList);
+            contex.SaveChanges();
             
             foreach (var word in wordsInText)
             {
-                var item = wordDAL.FindBy(e => e.Name.ToLower().Equals(word.ToLower()));
+                var item = contex.Words.FirstOrDefault(e => e.Name.ToLower().Equals(word.ToLower()));
                 if(item != null)
                 {
-                    if(!textWordDAL.Has(e => e.TextRef.Id == this.Id && e.WordRef.Id == item.Id))
+                    if(!contex.TextWords.Any(e => e.TextRef.Id == this.Id && e.WordRef.Id == item.Id))
                     {
-                        textWordDAL.Add(new TextWord(this, item));
+                        contex.TextWords.Add(new TextWord(this, item));
                     }
                 }
             }
+
+            contex.SaveChanges();
         }
 
-        public void ClearRelationTextWord(TextWordDAL textWordDAL, int id)
+        public void ClearRelationTextWord(MyDictionaryContex contex, int id)
         {
-            var textWordList = textWordDAL.FindBySome(e => e.TextRef.Id == id);
-            textWordDAL.RemoveRange(textWordList);
+            var textWordList = contex.TextWords.Where(e => e.TextRef.Id == id);
+            contex.TextWords.RemoveRange(textWordList);
         }
     }
 }

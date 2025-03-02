@@ -1,21 +1,5 @@
 [
   {
-    "ContainingType": "Program\u002B\u003C\u003Ec",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_1",
-    "RelativePath": "",
-    "HttpMethod": "GET",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "MeuDicionario.Controllers.WordController",
     "Method": "Create",
     "RelativePath": "palavra",
@@ -51,6 +35,28 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MeuDicionario.Controllers.WordController",
+    "Method": "ClearWordRelactions",
+    "RelativePath": "palavra",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "word",
+        "Type": "MeuDicionario.Model.Word",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MeuDicionario.Controllers.WordController",

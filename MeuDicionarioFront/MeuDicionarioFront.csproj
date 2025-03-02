@@ -1,0 +1,71 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\components\_popupContainer.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\components\_reset.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\components\_root.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\components\_secMenu.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\components\_secView.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\components\_secViewRevision.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\components\_secViewTexts.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\components\_utilitys.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\Figtree-Italic-VariableFont_wght.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\Figtree-VariableFont_wght.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\OFL.txt" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\README.txt" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-Black.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-BlackItalic.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-Bold.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-BoldItalic.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-ExtraBold.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-ExtraBoldItalic.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-Italic.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-Light.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-LightItalic.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-Medium.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-MediumItalic.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-Regular.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-SemiBold.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\Figtree\static\Figtree-SemiBoldItalic.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\font\IndieFlower-Regular.ttf" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\arrow-left-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\arrows-rotate-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\check-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\arrow-left-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\arrows-rotate-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\check-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\magnifying-glass-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\pen-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\plus-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\question-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\trash-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\icons-low\x-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\magnifying-glass-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\pen-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\plus-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\question-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\trash-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\img\x-solid.svg" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\style.css" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\style.css.map" />
+    <None Include="wwwroot\MeuDicionarioFront-main\assets\style.scss" />
+    <None Include="wwwroot\MeuDicionarioFront-main\index.html" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\binarySearch.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\menuManager.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\messageManager.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\popupManager.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\revision.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\revisionControler.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\secTexts.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\textController.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\viewManager.js" />
+    <None Include="wwwroot\MeuDicionarioFront-main\src\wordControler.js" />
+  </ItemGroup>
+
+</Project>

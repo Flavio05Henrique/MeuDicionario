@@ -11,8 +11,6 @@ C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\De
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\MeuDicionario.AssemblyInfo.cs
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\MeuDicionario.csproj.CoreCompileInputs.cache
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\MeuDicionario.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\MeuDicionario.RazorAssemblyInfo.cache
-C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\MeuDicionario.RazorAssemblyInfo.cs
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\MeuDicionario.sourcelink.json
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\staticwebassets.development.json
@@ -21,9 +19,7 @@ C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\De
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.MeuDicionario.props
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.MeuDicionario.props
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\scopedcss\bundle\MeuDicionario.styles.css
-C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\scopedcss\projectbundle\MeuDicionario.bundle.scp.css
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\MeuDicionario.dll
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\refint\MeuDicionario.dll
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionario\obj\Debug\net8.0\MeuDicionario.pdb

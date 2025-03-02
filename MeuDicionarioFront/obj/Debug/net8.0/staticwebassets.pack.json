@@ -1,0 +1,257 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_popupContainer.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_popupContainer.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_reset.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_reset.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_root.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_root.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_secMenu.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_secMenu.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_secView.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_secView.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_secViewRevision.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_secViewRevision.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_secViewTexts.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_secViewTexts.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\components\\_utilitys.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\components\\_utilitys.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\Figtree-Italic-VariableFont_wght.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\Figtree-Italic-VariableFont_wght.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\Figtree-VariableFont_wght.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\Figtree-VariableFont_wght.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\OFL.txt",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\OFL.txt"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\README.txt",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\README.txt"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Black.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Black.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-BlackItalic.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-BlackItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Bold.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Bold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-BoldItalic.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-BoldItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-ExtraBold.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-ExtraBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-ExtraBoldItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Italic.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Italic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Light.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Light.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-LightItalic.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-LightItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Medium.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Medium.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-MediumItalic.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-MediumItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Regular.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-SemiBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\Figtree\\static\\Figtree-SemiBoldItalic.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\font\\IndieFlower-Regular.ttf",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\font\\IndieFlower-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\arrow-left-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\arrow-left-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\arrows-rotate-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\arrows-rotate-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\check-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\check-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\arrow-left-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\arrow-left-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\arrows-rotate-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\arrows-rotate-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\check-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\check-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\magnifying-glass-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\magnifying-glass-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\pen-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\pen-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\plus-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\plus-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\question-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\question-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\trash-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\trash-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\icons-low\\x-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\icons-low\\x-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\magnifying-glass-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\magnifying-glass-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\pen-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\pen-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\plus-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\plus-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\question-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\question-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\trash-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\trash-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\img\\x-solid.svg",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\img\\x-solid.svg"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\style.css",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\style.css.map",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\style.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\assets\\style.scss",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\assets\\style.scss"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\index.html",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\binarySearch.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\binarySearch.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\menuManager.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\menuManager.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\messageManager.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\messageManager.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\popupManager.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\popupManager.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\revision.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\revision.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\revisionControler.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\revisionControler.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\secTexts.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\secTexts.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\textController.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\textController.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\viewManager.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\viewManager.js"
+    },
+    {
+      "Id": "C:\\Users\\Flavio Henrique\\Documents\\Estudos\\C#\\MeuDicionario\\MeuDicionarioFront\\wwwroot\\MeuDicionarioFront-main\\src\\wordControler.js",
+      "PackagePath": "staticwebassets\\MeuDicionarioFront-main\\src\\wordControler.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MeuDicionarioFront.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MeuDicionarioFront.props",
+      "PackagePath": "build\\MeuDicionarioFront.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MeuDicionarioFront.props",
+      "PackagePath": "buildMultiTargeting\\MeuDicionarioFront.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MeuDicionarioFront.props",
+      "PackagePath": "buildTransitive\\MeuDicionarioFront.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

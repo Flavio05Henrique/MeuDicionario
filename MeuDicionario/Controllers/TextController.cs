@@ -1,8 +1,8 @@
-﻿using MeuDicionario.Infra.DALs;
-using MeuDicionario.Model.DTOs;
+﻿using MeuDicionario.Model.DTOs;
 using MeuDicionario.Model;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
+using MeuDicionario.Infra;
 
 namespace MeuDicionario.Controllers
 {
@@ -10,16 +10,12 @@ namespace MeuDicionario.Controllers
     [Route("/texto")]
     public class TextController : ControllerBase
     {
-        private readonly TextDAL _textDAL;
-        private readonly WordDAL _wordDAL;
-        private readonly TextWordDAL _textWordDAL;
+        private readonly MyDictionaryContex _dbContex;
         private readonly IMapper _mapper;
 
-        public TextController(TextDAL textDAL, WordDAL wordDAL, TextWordDAL textWordDAL, IMapper mapper)
+        public TextController(MyDictionaryContex dbContex, IMapper mapper)
         {
-            _textDAL = textDAL;
-            _wordDAL = wordDAL;
-            _textWordDAL = textWordDAL;
+            _dbContex = dbContex;
             _mapper = mapper;
         }
 
@@ -30,29 +26,29 @@ namespace MeuDicionario.Controllers
 
             if (string.IsNullOrWhiteSpace(text.Title)) return BadRequest("Sem titulo");
             if (string.IsNullOrWhiteSpace(text.TextItSelf)) return BadRequest("Sem texto");
-            if (_textDAL.Has(e => e.Title.ToLower().Equals(text.Title.ToLower()))) 
+            if (_dbContex.Texts.Any(e => e.Title.ToLower().Equals(text.Title.ToLower())))
                 return Conflict("Titulo já registrado");
 
             text.SearchAllWordsInText();
-            _textDAL.Add(text);
-            text.SetRelationTextWord(_wordDAL, _textWordDAL);
+            _dbContex.Texts.Add(text);
+            text.SetRelationTextWord(_dbContex);
+            _dbContex.SaveChanges();
             return CreatedAtAction(nameof(FindById), new { Id = text.Id }, text);
         }
 
         [HttpPost("{id}")]
         public IActionResult UpdateRelationTextWord(int id)
         {
-            var text = _textDAL.FindBy(e => e.Id == id);
+            var text = _dbContex.Texts.FirstOrDefault(e => e.Id == id);
             if (text == null) return NotFound("Texto não consta");
-            text.SearchAllWordsInText();
-            text.SetRelationTextWord(_wordDAL, _textWordDAL);
+            text.SetRelationTextWord(_dbContex);
             return Ok();
         }
 
         [HttpGet]
         public IActionResult List([FromQuery] int skip = 0, [FromQuery] int take = 3)
         {
-            var list = _textDAL.ListOrderByLastFirst(skip, take, e => e.Id);
+            var list = _dbContex.Texts.OrderByDescending(e => e.Id).Skip(skip).Take(take);
             if (list.Count() == 0) return NotFound("Sem registros de textos");
             return Ok(list);
         }
@@ -60,14 +56,14 @@ namespace MeuDicionario.Controllers
         [HttpGet("{id}")]
         public IActionResult ListTextWord(int id)
         {
-            var list = _textWordDAL.FindBySome(e => e.TextRef.Id == id).Select(e => e.WordRef);
+            var list = _dbContex.TextWords.Where(e => e.TextRef.Id == id).Select(e => e.WordRef);
             if (list.Count() == 0) return NotFound("Sem palavras relacionadas");
             return Ok(list);
         }
 
         public IActionResult FindById(int id)
         {
-            var text = _textDAL.FindBy(e => e.Id == id);
+            var text = _dbContex.Texts.FirstOrDefault(e => e.Id == id);
             if (text == null) return NotFound("Texto não existe");
             return Ok(text);
         }
@@ -75,20 +71,22 @@ namespace MeuDicionario.Controllers
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
-            var search = _textDAL.FindBy(w => w.Id == id);
+            var search = _dbContex.Texts.FirstOrDefault(w => w.Id == id);
             if (search == null) return NotFound();
-            search.ClearRelationTextWord(_textWordDAL, search.Id);
-            _textDAL.Remove(search);
+            search.ClearRelationTextWord(_dbContex, search.Id);
+            _dbContex.Texts.Remove(search);
+            _dbContex.SaveChanges();
             return NoContent();
         }
 
         [HttpPut("{id}")]
         public IActionResult Change([FromBody] TextCreate text, int id)
         {
-            var textFound = _textDAL.FindBy(e => e.Id == id);
+            var textFound = _dbContex.Texts.FirstOrDefault(e => e.Id == id);
             if (textFound == null) return NotFound("Texto não existe");
             textFound.SearchAllWordsInText();
-            _textDAL.Update(_mapper.Map(text, textFound));
+            _dbContex.Texts.Update(_mapper.Map(text, textFound));
+            _dbContex.SaveChanges();
             return NoContent();
         }
     }

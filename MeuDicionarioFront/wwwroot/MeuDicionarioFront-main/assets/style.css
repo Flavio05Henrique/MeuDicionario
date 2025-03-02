@@ -1,0 +1,638 @@
+@font-face {
+  font-family: "Figtree";
+  src: url("https://localhost:7168/MeuDicionarioFront-main/assets/font/Figtree/Figtree-VariableFont_wght.ttf");
+}
+:root {
+  --cor-1: #D5F2F2;
+  --cor-2: #010326;
+  --cor-3: #224462;
+  --font-default: "Figtree";
+  --url: "7168" ;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  background-color: none;
+  font-family: var(--font-default);
+  font-weight: 400;
+}
+
+body {
+  display: flex;
+}
+
+button {
+  cursor: pointer;
+}
+
+.menu {
+  width: 20%;
+  height: 100vh;
+  background-color: var(--cor-2);
+  display: flex;
+  flex-direction: column;
+  padding: 150px 0;
+  align-items: center;
+}
+.menu__logo {
+  font-size: 8rem;
+  margin-bottom: 15px;
+  color: white;
+}
+.menu menu li {
+  list-style: none;
+}
+.menu menu li button {
+  width: 150px;
+  margin: 10px 0;
+  text-align: start;
+  padding: 5px;
+  font-size: 2rem;
+  border: none;
+  border-radius: 5px;
+  color: var(--cor-2);
+  font-weight: 600;
+}
+.menu .message__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--cor-1);
+  width: 90%;
+  margin-top: 100px;
+  justify-self: flex-end;
+  padding: 5px;
+  transform: translate(0, 100%);
+  opacity: 0%;
+  transition: 0.5s;
+}
+.menu .message__container h3 {
+  width: 100%;
+  font-size: 2.5rem;
+  color: var(--cor-2);
+}
+.menu .message__container .message {
+  width: 100%;
+  padding: 5px;
+  font-size: 1.5rem;
+  background-color: var(--cor-2);
+  color: var(--cor-1);
+}
+
+.view {
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+  height: 100vh;
+  background-color: var(--cor-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.view input {
+  width: 100%;
+  padding: 5px 15px;
+  font-size: 2.5rem;
+  border-radius: 999px;
+  outline: none;
+  border: none;
+}
+.view .search {
+  position: relative;
+  width: 60%;
+  margin: 15px 0;
+}
+.view .search input {
+  width: 100%;
+}
+.view .search input:focus ~ label, .view .search input:valid ~ label {
+  top: 5%;
+  left: 15%;
+  color: black;
+  transition: 0.5s;
+  font-size: 1.5rem;
+}
+.view .search label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  font-weight: 500;
+  color: gray;
+  cursor: text;
+  transform: translate(-50%, -50%);
+  transition: 0.5s;
+}
+.view .newWord {
+  overflow: hidden;
+  height: 250px;
+  transition: 0.5s;
+}
+.view .newWord legend {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+.view .newWord label {
+  font-size: 2rem;
+}
+.view .newWord button {
+  font-size: 1.5rem;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin: 15px 0;
+  margin-left: 100%;
+  transform: translate(-100%);
+  background-color: var(--cor-2);
+  color: var(--cor-1);
+}
+.view .words {
+  width: 80%;
+  height: 60%;
+  gap: 10px;
+  background-color: var(--cor-3);
+  border-radius: 5px;
+  padding: 15px;
+  transition: 0.5s;
+}
+.view .words__container {
+  width: 100%;
+  height: 90%;
+  overflow-y: scroll;
+}
+.view .words__container::-webkit-scrollbar {
+  width: 0px;
+}
+.view .words__controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  height: 10%;
+  margin-bottom: 10px;
+}
+.view .words__controls button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 100%;
+  transition: 0.5s;
+}
+.view .words__controls button:hover {
+  transform: rotate(30deg);
+  background-color: rgba(255, 255, 255, 0.116);
+}
+.view .words__controls .load {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/arrows-rotate-solid.svg") no-repeat center center;
+  background-size: 35px;
+}
+.view .words__controls .plus {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/plus-solid.svg") no-repeat center center;
+}
+.view .words .word {
+  display: inline-block;
+  font-size: 2rem;
+  background-color: white;
+  color: var(--cor-2);
+  padding: 5px 7px;
+  margin: 5px 5px;
+  border-radius: 999px;
+  border: 3px solid var(--cor-2);
+  border-right: 5px solid var(--cor-2);
+  border-bottom: 5px solid var(--cor-2);
+  cursor: pointer;
+}
+.view .words__cardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  transition: 0.5s;
+  overflow: hidden;
+}
+.view .words__card {
+  position: relative;
+  width: 400px;
+  background-color: var(--cor-3);
+  padding: 5px;
+  border-radius: 5px;
+}
+.view .words__card .controls {
+  position: absolute;
+  left: 100%;
+  transform: translate(-115%, -125%);
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+.view .words__card .controls button {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: none;
+}
+.view .words__card .controls button:hover {
+  background-color: rgba(255, 255, 255, 0.544);
+}
+.view .words__card .controls .close, .view .words__card .controls .cancel {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/x-solid.svg") no-repeat center center;
+  background-size: 60%;
+}
+.view .words__card .controls .exclude {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/trash-solid.svg") no-repeat center center;
+  background-size: 60%;
+}
+.view .words__card .controls .edit {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/pen-solid.svg") no-repeat center center;
+  background-size: 60%;
+}
+.view .words__card .controls .confirm {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/check-solid.svg") no-repeat center center;
+  background-size: 80%;
+}
+.view .words__card input {
+  background-color: transparent;
+  border-radius: 0;
+}
+.view .words__card #description {
+  background-color: rgb(202, 196, 196);
+  font-size: 2rem;
+}
+.view .words__card h3 {
+  font-size: 3rem;
+  color: var(--cor-2);
+  margin-bottom: 5px;
+}
+.view .words__card p {
+  font-size: 2rem;
+  background-color: var(--cor-1);
+  color: var(--cor-2);
+  padding: 5px;
+}
+.view .wordsReduce {
+  height: 40%;
+}
+
+.view__revision {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor-1);
+  transform: translate(100%);
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.view__revision .card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  width: 500px;
+  padding: 15px;
+  background-color: var(--cor-2);
+  border-radius: 5px;
+}
+.view__revision .card p {
+  font-size: 2rem;
+  color: var(--cor-1);
+}
+.view__revision .card button {
+  font-size: 3rem;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 15px 0;
+  background-color: var(--cor-1);
+  color: var(--cor-2);
+}
+.view__revision .card .tools {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-items: flex-start;
+  gap: 15px;
+}
+.view__revision .card .tools .result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  width: 60px;
+  height: 30px;
+  color: var(--cor-1);
+}
+.view__revision .card .close {
+  align-self: flex-start;
+  font-size: 2rem;
+  padding: 5px;
+  border-radius: 5px;
+  width: 30px;
+  height: 30px;
+  font-weight: 600;
+  background-color: var(--cor-1);
+  color: var(--cor-2);
+}
+.view__revision .card h3 {
+  font-size: 5rem;
+  color: var(--cor-1);
+}
+.view__revision .card .option {
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--cor-1);
+  border-radius: 5px;
+  font-size: 2.5rem;
+  color: var(--cor-1);
+  cursor: pointer;
+}
+.view__revision .card .option:hover {
+  background-color: rgba(255, 255, 255, 0.33);
+}
+.view__revision .card .resultsReport {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.view__revision .card .resultsReport h3 {
+  text-align: center;
+}
+.view__revision .card .resultsReport .result {
+  font-size: 3rem;
+  background-color: rgb(218, 218, 218);
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  border-radius: 5px;
+}
+.view__revision .card .resultsReport button {
+  margin: auto;
+}
+.view__revision .card .successes {
+  border: 1px solid rgb(178, 255, 123);
+}
+.view__revision .card .mistakes {
+  border: 1px solid rgb(255, 66, 66);
+}
+
+.view__texts {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: var(--cor-1);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: "text text text words words" "text text text words words" "text text text words words" "text text text tools tools" "text text text tools tools";
+  align-items: center;
+  justify-items: center;
+  transform: translate(100%);
+  transition: 0.5s;
+}
+.view__texts .texts {
+  width: 98%;
+  height: 98%;
+  grid-area: text;
+  background-color: var(--cor-3);
+  overflow: hidden;
+}
+.view__texts .texts .tools {
+  width: 100%;
+  height: 50px;
+  background-color: var(--cor-2);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  padding: 15px;
+}
+.view__texts .texts .tools button {
+  width: 30px;
+  height: 30px;
+  border: none;
+}
+.view__texts .texts .tools .return {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/arrow-left-solid.svg") no-repeat center center;
+  background-size: 70%;
+}
+.view__texts .texts .tools .add {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/plus-solid.svg") no-repeat center center;
+  background-size: 70%;
+}
+.view__texts .texts .tools .search {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/magnifying-glass-solid.svg") no-repeat center center;
+  background-size: 70%;
+}
+.view__texts .texts .tools .doubt {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/question-solid.svg") no-repeat center center;
+  background-size: 55%;
+}
+.view__texts .texts .tools .delete {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/trash-solid.svg") no-repeat center center;
+  background-size: 70%;
+}
+.view__texts .texts .tools .edit {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/pen-solid.svg") no-repeat center center;
+  background-size: 70%;
+}
+.view__texts .texts .tools .load {
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/icons-low/arrows-rotate-solid.svg") no-repeat center center;
+  background-size: 80%;
+}
+.view__texts .texts .tools .extra {
+  display: flex;
+  width: 70px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.view__texts .texts .container {
+  height: 100%;
+  align-items: center;
+  overflow: scroll;
+  position: relative;
+}
+.view__texts .texts .container::-webkit-scrollbar {
+  width: 0px;
+}
+.view__texts .texts .container .text__card {
+  width: 95%;
+  background-color: var(--cor-2);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 40px auto;
+  cursor: pointer;
+}
+.view__texts .texts .container .text__card h3 {
+  font-size: 3rem;
+  margin-bottom: 8px;
+  color: var(--cor-1);
+}
+.view__texts .texts .container .text__card p {
+  font-size: 2rem;
+  background-color: var(--cor-1);
+  color: var(--cor-2);
+  padding: 5px;
+  overflow: hidden;
+  max-height: 250px;
+}
+.view__texts .texts .container button {
+  display: block;
+  width: 90%;
+  height: 50px;
+  border: none;
+  transition: 0.5s;
+  margin: auto;
+  margin-bottom: 25px;
+  background: url("https://localhost:7168/MeuDicionarioFront-main/assets/img/arrows-rotate-solid.svg") no-repeat center center;
+}
+.view__texts .texts .container button:hover {
+  background-color: rgba(255, 255, 255, 0.305);
+  transition: 0.5s;
+}
+.view__texts .texts .container .text__cardExpanded {
+  width: 100%;
+  height: 100%;
+  background-color: var(--cor-2);
+  padding: 15px;
+}
+.view__texts .texts .container .text__cardExpanded h3 {
+  font-size: 3rem;
+  color: var(--cor-1);
+}
+.view__texts .texts .container .text__cardExpanded p {
+  height: 90%;
+  font-size: 2rem;
+  background-color: var(--cor-1);
+  color: var(--cor-2);
+  padding: 5px;
+  overflow: scroll;
+}
+.view__texts .texts .container .text__cardExpanded p::-webkit-scrollbar {
+  width: 0px;
+}
+.view__texts .words {
+  grid-area: words;
+  width: 98%;
+  height: 98%;
+  position: relative;
+  padding-top: 40px;
+  overflow-y: scroll;
+}
+.view__texts .words::-webkit-scrollbar {
+  width: 0px;
+}
+.view__texts .words h3 {
+  background-color: var(--cor-2);
+  color: var(--cor-1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 3rem;
+}
+.view__texts .card__tools {
+  grid-area: tools;
+  justify-self: center;
+  align-self: center;
+}
+
+.popup__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.303);
+}
+.popup__container button {
+  width: 50px;
+  height: 50px;
+  font-size: 4rem;
+  background-color: transparent;
+  border: none;
+  color: var(--cor-1);
+}
+.popup__container .card__infos {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-2);
+  width: 600px;
+  padding: 5px;
+  gap: 5px;
+}
+.popup__container .card__infos .item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: rgb(76, 76, 76);
+  padding: 5px;
+  border-radius: 5px;
+}
+.popup__container .card__infos .item img {
+  width: 40px;
+  height: 40px;
+}
+.popup__container .card__infos .item p {
+  font-size: 1.8rem;
+  text-align: justify;
+}
+.popup__container .card__infos .newText {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  gap: 5px;
+  padding: 5px;
+  color: var(--cor-1);
+}
+.popup__container .card__infos .newText input {
+  font-size: 2rem;
+}
+.popup__container .card__infos .newText textarea {
+  font-size: 2rem;
+  height: 300px;
+}
+.popup__container .card__infos .newText button {
+  width: auto;
+  height: auto;
+  font-size: 2rem;
+  align-self: flex-end;
+  background-color: var(--cor-1);
+  color: var(--cor-2);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.heightZero {
+  height: 0px !important;
+  transition: 0.5s;
+}
+
+.widthZero {
+  width: 0 !important;
+  transition: 0.5s;
+}
+
+.displayNone {
+  display: none;
+}
+
+.transformClear {
+  transform: none !important;
+}
+
+.opacityZero {
+  opacity: 100% !important;
+}/*# sourceMappingURL=style.css.map */

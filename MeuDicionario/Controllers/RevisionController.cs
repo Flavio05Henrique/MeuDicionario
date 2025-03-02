@@ -1,4 +1,4 @@
-﻿using MeuDicionario.Infra.DALs;
+﻿using MeuDicionario.Infra;
 using MeuDicionario.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,20 +9,18 @@ namespace MeuDicionario.Controllers
     [Route("/revisao")]
     public class RevisionController : ControllerBase
     {
-        private readonly RevisionDAL _revisionDAL;
-        private readonly WordDAL _wordDAL;
-        public RevisionController(RevisionDAL revisionDAL, WordDAL wordDAL)
+
+        private readonly MyDictionaryContex _dbContex;
+
+        public RevisionController(MyDictionaryContex dbContex)
         {
-            _revisionDAL = revisionDAL;
-            _wordDAL = wordDAL;
+            _dbContex = dbContex;
         }
 
         [HttpGet]
         public IActionResult List([FromQuery] int skip = 0, [FromQuery] int take = 50)
         {
-            var contex = _revisionDAL.GetContex();
-
-            var list = contex.Set<Revision>().Include(r => r.WordRef).Take(50).ToList();
+            var list = _dbContex.Revision.Include(r => r.WordRef).Take(50).ToList();
             if (list.Count() == 0) return NotFound("Sem registros");
 
             return Ok(list);
@@ -35,16 +33,18 @@ namespace MeuDicionario.Controllers
 
             foreach(var item in list)
             {
-                var revisionFound = _revisionDAL.FindBy(e => e.Id == item);
+                var revisionFound = _dbContex.Revision.FirstOrDefault(e => e.Id == item);
                 if (revisionFound != null)
                 {
-                    var wordFound = _wordDAL.FindBy(e => e.Id == revisionFound.WordRef.Id);
+                    var wordFound = _dbContex.Words.FirstOrDefault(e => e.Id == revisionFound.WordRef.Id);
                     wordFound.LastSeen = DateTime.Now;
-                    _wordDAL.Update(wordFound);
+                    _dbContex.Words.Update(wordFound);
 
-                    _revisionDAL.Remove(revisionFound);
+                    _dbContex.Revision.Remove(revisionFound);
                 }
             }
+
+            _dbContex.SaveChanges();
 
             return NoContent();
         }
