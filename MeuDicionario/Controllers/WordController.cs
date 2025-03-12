@@ -83,10 +83,10 @@ namespace MeuDicionario.Controllers
 
         public void ClearWordRelactions(Word word)
         {
-            var searchRevision = _dbContex.Revision.FirstOrDefault(e => e.WordRef.Id == word.Id);
+            var searchRevision = _dbContex.RevisionV3.FirstOrDefault(e => e.WordRef.Id == word.Id);
             if (searchRevision != null)
             {
-                _dbContex.Revision.Remove(searchRevision);
+                _dbContex.RevisionV3.Remove(searchRevision);
             }
             var searchWordInText = _dbContex.TextWords.Where(e => e.TextRef.Id == word.Id);
             if(searchWordInText.Count() > 0)

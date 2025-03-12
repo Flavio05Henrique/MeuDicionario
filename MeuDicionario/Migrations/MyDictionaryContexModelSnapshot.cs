@@ -22,24 +22,6 @@ namespace MeuDicionario.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MeuDicionario.Model.Revision", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("WordRefId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("WordRefId");
-
-                    b.ToTable("Revision");
-                });
-
             modelBuilder.Entity("MeuDicionario.Model.RevisionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -54,6 +36,24 @@ namespace MeuDicionario.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("RevisionLogs");
+                });
+
+            modelBuilder.Entity("MeuDicionario.Model.RevisionV3", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Word")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Word");
+
+                    b.ToTable("RevisionV3");
                 });
 
             modelBuilder.Entity("MeuDicionario.Model.Text", b =>
@@ -131,11 +131,11 @@ namespace MeuDicionario.Migrations
                     b.ToTable("Words");
                 });
 
-            modelBuilder.Entity("MeuDicionario.Model.Revision", b =>
+            modelBuilder.Entity("MeuDicionario.Model.RevisionV3", b =>
                 {
                     b.HasOne("MeuDicionario.Model.Word", "WordRef")
                         .WithMany()
-                        .HasForeignKey("WordRefId")
+                        .HasForeignKey("Word")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

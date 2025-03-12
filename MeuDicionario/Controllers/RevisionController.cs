@@ -20,7 +20,7 @@ namespace MeuDicionario.Controllers
         [HttpGet]
         public IActionResult List([FromQuery] int skip = 0, [FromQuery] int take = 50)
         {
-            var list = _dbContex.Revision.Include(r => r.WordRef).Take(50).ToList();
+            var list = _dbContex.RevisionV3.Include(r => r.WordRef).Take(50).ToList();
             if (list.Count() == 0) return NotFound("Sem registros");
 
             return Ok(list);
@@ -33,14 +33,14 @@ namespace MeuDicionario.Controllers
 
             foreach(var item in list)
             {
-                var revisionFound = _dbContex.Revision.FirstOrDefault(e => e.Id == item);
+                var revisionFound = _dbContex.RevisionV3.FirstOrDefault(e => e.Id == item);
                 if (revisionFound != null)
                 {
                     var wordFound = _dbContex.Words.FirstOrDefault(e => e.Id == revisionFound.WordRef.Id);
                     wordFound.LastSeen = DateTime.Now;
                     _dbContex.Words.Update(wordFound);
 
-                    _dbContex.Revision.Remove(revisionFound);
+                    _dbContex.RevisionV3.Remove(revisionFound);
                 }
             }
 

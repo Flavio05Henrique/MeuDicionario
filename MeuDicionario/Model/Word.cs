@@ -20,7 +20,7 @@ namespace MeuDicionario.Model
         {
             Name = WordFormatted(name);
             Meaning = meaning;
-            LastSeen = DateTime.Now;
+            LastSeen = DateTime.Now.AddDays(-4);
         }
 
         private string WordFormatted(string word)

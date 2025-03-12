@@ -6,7 +6,7 @@ namespace MeuDicionario.Infra
     public class MyDictionaryContex : DbContext
     {
         public DbSet<Word> Words { get; set; }
-        public DbSet<Revision> Revision {  get; set; }
+        public DbSet<RevisionV3> RevisionV3 {  get; set; }
         public DbSet<RevisionLog> RevisionLogs {  get; set; }
         public DbSet<Text> Texts { get; set; }
         public DbSet<TextWord> TextWords { get; set; }

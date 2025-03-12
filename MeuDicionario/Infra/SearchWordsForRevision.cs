@@ -12,7 +12,7 @@ namespace MeuDicionario.Infra
             _contex = contex;
         }
 
-        public void Execute()
+        public async void Execute()
         {
             //if(_contex.RevisionLogs.Count() > 0)
             //{
@@ -38,22 +38,24 @@ namespace MeuDicionario.Infra
             _contex.SaveChanges();
         }
 
-        async private void GetWordsForRevision()
+         private void GetWordsForRevision()
         {
             var currentDate = DateTime.Now;
 
-            var list = await _contex.Words.Where(e => EF.Functions.DateDiffDay(e.LastSeen, currentDate) > 3).ToListAsync();
+            var list =  _contex.Words.Where(e => EF.Functions.DateDiffDay(e.LastSeen, currentDate) > 3).ToList();
 
-            foreach (var i in list)
+            if (list is null) return;
+
+            foreach (var word in list)
             {
-                if (_contex.Revision.Any(e => e.WordRef.Id == i.Id)) return;
+                //Console.WriteLine(i.Name + " " + list.Count);
+                if (_contex.RevisionV3.Any(e => e.WordRef.Id == word.Id)) continue;
 
-                var itemRevision = new Revision();
-                itemRevision.SetAttributes(i);
+                var itemRevision = new RevisionV3(word);
 
-                _contex.Revision.Add(itemRevision);
-                _contex.SaveChanges();
+                _contex.RevisionV3.Add(itemRevision);
             }
+            _contex.SaveChanges();
         }
     }
 }
