@@ -12,19 +12,6 @@ namespace MeuDicionarioV2.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "RevisionLogs",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RevisionLogs", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Texts",
                 columns: table => new
                 {
@@ -45,12 +32,16 @@ namespace MeuDicionarioV2.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     Name = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     Meaning = table.Column<string>(type: "nvarchar(550)", maxLength: 550, nullable: false),
                     CrationDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastSeen = table.Column<DateTime>(type: "datetime2", nullable: false),
                     WordType = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IsRegular = table.Column<bool>(type: "bit", nullable: false)
+                    IsRegular = table.Column<bool>(type: "bit", nullable: false),
+                    Revision = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    RevisionGap = table.Column<int>(type: "int", nullable: false, defaultValue: 3),
+                    RevisionScore = table.Column<int>(type: "int", nullable: false, defaultValue: 0)
                 },
                 constraints: table =>
                 {
@@ -79,18 +70,19 @@ namespace MeuDicionarioV2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Revisions",
+                name: "RevisionLogs",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    WordId = table.Column<int>(type: "int", nullable: false)
+                    WordId = table.Column<int>(type: "int", nullable: false),
+                    Time = table.Column<TimeSpan>(type: "time", nullable: false),
+                    Correct = table.Column<bool>(type: "bit", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Revisions", x => x.Id);
+                    table.PrimaryKey("PK_RevisionLogs", x => x.WordId);
                     table.ForeignKey(
-                        name: "FK_Revisions_Words_WordId",
+                        name: "FK_RevisionLogs_Words_WordId",
                         column: x => x.WordId,
                         principalTable: "Words",
                         principalColumn: "Id",
@@ -98,7 +90,7 @@ namespace MeuDicionarioV2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TextWord",
+                name: "TextsWords",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -108,15 +100,15 @@ namespace MeuDicionarioV2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TextWord", x => x.Id);
+                    table.PrimaryKey("PK_TextsWords", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TextWord_Texts_TextId",
+                        name: "FK_TextsWords_Texts_TextId",
                         column: x => x.TextId,
                         principalTable: "Texts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TextWord_Words_WordId",
+                        name: "FK_TextsWords_Words_WordId",
                         column: x => x.WordId,
                         principalTable: "Words",
                         principalColumn: "Id",
@@ -134,10 +126,7 @@ namespace MeuDicionarioV2.Migrations
                 name: "RevisionLogs");
 
             migrationBuilder.DropTable(
-                name: "Revisions");
-
-            migrationBuilder.DropTable(
-                name: "TextWord");
+                name: "TextsWords");
 
             migrationBuilder.DropTable(
                 name: "Texts");

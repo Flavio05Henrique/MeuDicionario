@@ -172,3 +172,7 @@ C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionarioV2\obj\
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionarioV2\obj\Debug\net8.0\MeuDicionarioV2.pdb
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionarioV2\obj\Debug\net8.0\MeuDicionarioV2.genruntimeconfig.cache
 C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionarioV2\obj\Debug\net8.0\ref\MeuDicionarioV2.dll
+C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionarioV2\bin\Debug\net8.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionarioV2\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionarioV2\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Flavio Henrique\Documents\Estudos\C#\MeuDicionario\MeuDicionarioV2\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll

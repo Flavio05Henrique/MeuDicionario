@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MeuDicionarioV2.Migrations
 {
     [DbContext(typeof(MyDictionaryDbContex))]
-    [Migration("20250311155010_IniciandoBanco")]
-    partial class IniciandoBanco
+    [Migration("20250312162101_RemoveCollumLastSeeInWord")]
+    partial class RemoveCollumLastSeeInWord
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,20 +25,23 @@ namespace MeuDicionarioV2.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("MeuDicionario.Model.Revision", b =>
+            modelBuilder.Entity("MeuDicionario.Model.RevisionLog", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
                     b.Property<int>("WordId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<bool>("Correct")
+                        .HasColumnType("bit");
 
-                    b.ToTable("Revisions", (string)null);
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<TimeSpan>("Time")
+                        .HasColumnType("time");
+
+                    b.HasKey("WordId");
+
+                    b.ToTable("RevisionLogs", (string)null);
                 });
 
             modelBuilder.Entity("MeuDicionarioV2.Infra.Data.Entities.Conjugation", b =>
@@ -64,22 +67,6 @@ namespace MeuDicionarioV2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Conjugations", (string)null);
-                });
-
-            modelBuilder.Entity("MeuDicionariov2.Infra.Data.Entities.RevisionLog", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("RevisionLogs", (string)null);
                 });
 
             modelBuilder.Entity("MeuDicionariov2.Infra.Data.Entities.Text", b =>
@@ -124,7 +111,7 @@ namespace MeuDicionarioV2.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TextWord", (string)null);
+                    b.ToTable("TextsWords", (string)null);
                 });
 
             modelBuilder.Entity("MeuDicionariov2.Infra.Data.Entities.Word", b =>
@@ -138,11 +125,13 @@ namespace MeuDicionarioV2.Migrations
                     b.Property<DateTime>("CrationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
                     b.Property<bool>("IsRegular")
                         .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastSeen")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Meaning")
                         .IsRequired()
@@ -154,6 +143,21 @@ namespace MeuDicionarioV2.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
+                    b.Property<bool>("Revision")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<int>("RevisionGap")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(3);
+
+                    b.Property<int>("RevisionScore")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
                     b.Property<string>("WordType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -163,7 +167,7 @@ namespace MeuDicionarioV2.Migrations
                     b.ToTable("Words", (string)null);
                 });
 
-            modelBuilder.Entity("MeuDicionario.Model.Revision", b =>
+            modelBuilder.Entity("MeuDicionario.Model.RevisionLog", b =>
                 {
                     b.HasOne("MeuDicionariov2.Infra.Data.Entities.Word", "Word")
                         .WithMany()

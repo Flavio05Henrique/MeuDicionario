@@ -17,11 +17,10 @@ namespace MeuDicionariov2.Infra.Data
         }
 
         public DbSet<Word> Words { get; set; }
-        public DbSet<Revision> Revisions {  get; set; }
         public DbSet<RevisionLog> RevisionLogs {  get; set; }
         public DbSet<Text> Texts { get; set; }
         public DbSet<TextWord> TextWords { get; set; }
-        public DbSet<Conjugation> conjugations { get; set; }
+        public DbSet<Conjugation> Conjugations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,7 +33,7 @@ namespace MeuDicionariov2.Infra.Data
         {
             modelBuilder.ApplyConfiguration(new WordConfigurations());
             modelBuilder.ApplyConfiguration(new TextConfigurations());
-            modelBuilder.ApplyConfiguration(new RevisionConfigurations());
+            modelBuilder.ApplyConfiguration(new RevisionLogConfigurations());
             modelBuilder.ApplyConfiguration(new RevisionLogConfigurations());
             modelBuilder.ApplyConfiguration(new TextWordConfigurations());
             modelBuilder.ApplyConfiguration(new ConjugationConfigurations());

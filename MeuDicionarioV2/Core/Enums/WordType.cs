@@ -4,7 +4,7 @@ namespace MeuDicionarioV2.Core.Enums
 {
     public enum WordType
     {
-        [Description("Substabtivo")]
+        [Description("Substanbtivo")]
         Substantivo,
         [Description("Verbo")]
         Verbo,

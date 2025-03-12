@@ -43,8 +43,8 @@ namespace MeuDicionarioV2.Features.WordCtl
             }
             async private Task RemoveRelations(Word word, CancellationToken cancellationToken)
             {
-                var revisions = await _dbContext.Revisions.Where(e => e.Word.Id == word.Id).ToArrayAsync(cancellationToken);
-                if (revisions != null) _dbContext.Revisions.RemoveRange(revisions);
+                var revisions = await _dbContext.RevisionLogs.Where(e => e.Word.Id == word.Id).ToArrayAsync(cancellationToken);
+                if (revisions != null) _dbContext.RevisionLogs.RemoveRange(revisions);
 
                 var texts = await _dbContext.TextWords.Where(e => e.Word.Id == word.Id).ToArrayAsync(cancellationToken);
                 if (texts != null) _dbContext.TextWords.RemoveRange(texts);

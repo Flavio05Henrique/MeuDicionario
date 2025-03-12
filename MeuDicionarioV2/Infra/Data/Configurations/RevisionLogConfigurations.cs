@@ -1,9 +1,7 @@
-﻿using MeuDicionariov2.Infra.Data.Entities;
-using MeuDicionarioV2.Core.Enums;
+﻿using MeuDicionario.Model;
+using MeuDicionariov2.Infra.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using System.ComponentModel;
 
 namespace MeuDicionarioV2.Infra.Data.Configurations
 {
@@ -14,12 +12,20 @@ namespace MeuDicionarioV2.Infra.Data.Configurations
         {
             builder.ToTable("RevisionLogs");
 
-            builder.HasKey(e => e.Id);
+            builder.HasKey(e => e.WordId);
 
-            builder.Property(e => e.Id)
-                .UseIdentityColumn();
+            builder.Property(e => e.Time)
+                .IsRequired();
 
-            builder.Property(e => e.Date);
+            builder.Property(e => e.Correct)
+                .IsRequired();
+
+            builder.Property(e => e.Date)
+                .IsRequired();
+
+            builder.HasOne(e => e.Word)
+                .WithMany()
+                .HasForeignKey(e => e.WordId);
         }
     }
 }

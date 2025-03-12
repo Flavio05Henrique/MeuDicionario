@@ -35,7 +35,7 @@ namespace MeuDicionarioV2.Features.RevisionCtl
 
             public override async Task<Result<QueryResponse<Response>>> Handle(Command request, CancellationToken cancellationToken)
             {
-                var query = _dbContext.Revisions
+                var query = _dbContext.RevisionLogs
                     .AsQueryable();
 
                 query = query.ApplyPagination(request, out var count);
@@ -59,7 +59,7 @@ namespace MeuDicionarioV2.Features.RevisionCtl
         {
             public MappingProfile()
             {
-                CreateMap<Revision, Response>();
+                CreateMap<RevisionLog, Response>();
                 CreateMap<Word, Response>();
             }
         }

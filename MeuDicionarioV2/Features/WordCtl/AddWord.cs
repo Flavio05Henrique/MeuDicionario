@@ -58,7 +58,7 @@ namespace MeuDicionarioV2.Features.WordCtl
             public string Meaning { get; set; }
             public DateTime LastSeen { get; set; }
             public WordType WordType { get; set; }
-            public List<Conjugation> Conjugations { get; set; } 
+            public List<CommandConjugation> Conjugations { get; set; } 
         }
 
         public class Handler : BaseHandler<Command, Result<Response>>
@@ -91,12 +91,50 @@ namespace MeuDicionarioV2.Features.WordCtl
                     return Error<Response>(HttpStatusCode.Conflict);
                 }
 
+                if(request.WordType == WordType.Verbo || request.WordType == WordType.Substantivo)
+                {
+                    if(request.Conjugations.Count() == 0)
+                    {
+                        AddErro("Falta as conjugações!");
+                        return Error<Response>();
+                    }
+
+                    if(request.WordType == WordType.Substantivo)
+                    {
+                        if(request.Conjugations.Count() > 1)
+                        {
+                            AddErro("Substantivo com mais de uma conjugação!");
+                            return Error<Response>();
+                        }
+                        if(request.Conjugations.Any(e => e.ConjugationType != ConjugationType.Plural))
+                        {
+                            AddErro("Substantivos em ingles pusui apenas plural!");
+                            return Error<Response>();
+                        }
+                    }
+
+                    if(request.WordType == WordType.Verbo)
+                    {
+                        var conjugationTypes = request.Conjugations.Select(e => e.ConjugationType);
+
+                        var hasDuplicateTypes = conjugationTypes
+                            .GroupBy(e => e).Any(i => i.Count() > 1);
+
+                        if (hasDuplicateTypes)
+                        {
+                            AddErro("Você esta passando uma conjugação duplicada");
+                            return Error<Response>();
+                        }
+                    }
+
+                }
+
                 var word = new Word
                 {
+                    IsActive = true,
                     Name = StringFormat.ToUperFirstChar(request.Name),
                     Meaning = request.Meaning,
                     CrationDate = DateTime.Now,
-                    LastSeen = DateTime.UtcNow,
                     WordType = request.WordType,
                     IsRegular = request.IsRegular,
                     Conjugations = _mapper.Map<List<Conjugation>>(request.Conjugations)
@@ -116,6 +154,7 @@ namespace MeuDicionarioV2.Features.WordCtl
                     CreateMap<Command, Word>();
                     CreateMap<Word, Response>();
                     CreateMap<CommandConjugation, Conjugation>();
+                    CreateMap<Conjugation, CommandConjugation>();
                 }
             }
         }

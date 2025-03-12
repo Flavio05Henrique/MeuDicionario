@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using MeuDicionariov2.Infra.Data.Entities;
 
-namespace MeuDicionariov2.Infra.Data.Entities
+namespace MeuDicionario.Model
 {
     public class RevisionLog
     {
-        public int Id { get; set; }
+        public Word Word { get; set; }
+        public int WordId { get; set; }
+        public TimeSpan Time    { get; set; }
+        public bool Correct { get; set; }
         public DateTime Date { get; set; }
     }
 }

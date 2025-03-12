@@ -11,7 +11,6 @@ namespace MeuDicionariov2.Infra.Data.Entities
         public string Name { get;  set; }
         public string Meaning { get; set; }
         public DateTime CrationDate { get; set; }
-        public DateTime LastSeen { get; set; }
         public WordType WordType { get; set; }
         public bool IsRegular { get; set; }
         public bool Revision {  get; set; }

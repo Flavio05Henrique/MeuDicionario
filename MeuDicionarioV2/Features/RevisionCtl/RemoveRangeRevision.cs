@@ -30,9 +30,9 @@ namespace MeuDicionarioV2.Features.RevisionCtl
                     return Error(HttpStatusCode.NotFound);
                 }
 
-                var revisions =  await _dbContext.Revisions
+                var revisions =  await _dbContext.RevisionLogs
                     .Where(e => request.list.Contains(e.Word.Id)).ToArrayAsync(cancellationToken);
-                _dbContext.Revisions.RemoveRange(revisions);
+                _dbContext.RevisionLogs.RemoveRange(revisions);
 
                 await _dbContext.SaveChangesAsync(cancellationToken);
 

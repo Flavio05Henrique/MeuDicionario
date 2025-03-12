@@ -10,8 +10,8 @@ namespace MeuDicionarioV2.Infra.Startup
                 .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                });
-                //.AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = new);
+                })
+                .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddEndpointsApiExplorer();
 
             //services.AddCors(options =>
