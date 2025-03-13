@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using Azure.Core;
 using FluentValidation;
+using MediatR;
 using MeuDicionariov2.Infra.Data;
 using MeuDicionariov2.Infra.Data.Entities;
 using MeuDicionarioV2.Core.Enums;
@@ -58,7 +60,7 @@ namespace MeuDicionarioV2.Features.WordCtl
             public string Meaning { get; set; }
             public DateTime LastSeen { get; set; }
             public WordType WordType { get; set; }
-            public List<CommandConjugation> Conjugations { get; set; } 
+            public List<CommandConjugation> Conjugations { get; set; }
         }
 
         public class Handler : BaseHandler<Command, Result<Response>>
@@ -81,9 +83,9 @@ namespace MeuDicionarioV2.Features.WordCtl
                 }
 
                 var has = await _dbContext.Words
-                    .AnyAsync(c => 
+                    .AnyAsync(c =>
                         c.Name.Equals(request.Name) && c.WordType == request.WordType
-                            ,cancellationToken);
+                            , cancellationToken);
 
                 if (has)
                 {
@@ -91,42 +93,9 @@ namespace MeuDicionarioV2.Features.WordCtl
                     return Error<Response>(HttpStatusCode.Conflict);
                 }
 
-                if(request.WordType == WordType.Verbo || request.WordType == WordType.Substantivo)
+                if(!ValidConjugations(request))
                 {
-                    if(request.Conjugations.Count() == 0)
-                    {
-                        AddErro("Falta as conjugações!");
-                        return Error<Response>();
-                    }
-
-                    if(request.WordType == WordType.Substantivo)
-                    {
-                        if(request.Conjugations.Count() > 1)
-                        {
-                            AddErro("Substantivo com mais de uma conjugação!");
-                            return Error<Response>();
-                        }
-                        if(request.Conjugations.Any(e => e.ConjugationType != ConjugationType.Plural))
-                        {
-                            AddErro("Substantivos em ingles pusui apenas plural!");
-                            return Error<Response>();
-                        }
-                    }
-
-                    if(request.WordType == WordType.Verbo)
-                    {
-                        var conjugationTypes = request.Conjugations.Select(e => e.ConjugationType);
-
-                        var hasDuplicateTypes = conjugationTypes
-                            .GroupBy(e => e).Any(i => i.Count() > 1);
-
-                        if (hasDuplicateTypes)
-                        {
-                            AddErro("Você esta passando uma conjugação duplicada");
-                            return Error<Response>();
-                        }
-                    }
-
+                    return Error<Response>();
                 }
 
                 var word = new Word
@@ -139,7 +108,7 @@ namespace MeuDicionarioV2.Features.WordCtl
                     IsRegular = request.IsRegular,
                     Conjugations = _mapper.Map<List<Conjugation>>(request.Conjugations)
                 };
-                
+
                 await _dbContext.Words.AddAsync(word, cancellationToken);
                 await _dbContext.SaveChangesAsync(cancellationToken);
 
@@ -147,15 +116,117 @@ namespace MeuDicionarioV2.Features.WordCtl
                 return Success(response);
             }
 
-            public class MappingProfile : Profile
+            public bool ValidConjugations(Command request)
             {
-                public MappingProfile()
+                try
                 {
-                    CreateMap<Command, Word>();
-                    CreateMap<Word, Response>();
-                    CreateMap<CommandConjugation, Conjugation>();
-                    CreateMap<Conjugation, CommandConjugation>();
+                    var wordTypeRulePath = "MeuDicionarioV2.Features.WordCtl.AddWord+" + request.WordType.ToString() + "Rule";
+                    var rule = Type.GetType(wordTypeRulePath);
+                    var wordTypeRule = Activator
+                        .CreateInstance(rule);
+
+                    var method = wordTypeRule.GetType().GetMethod("IsValid");
+
+                    var wordTypeRuleResponse = method.Invoke(wordTypeRule, new object[] { request });
+
+                    if (wordTypeRuleResponse.ToString().Count() > 0)
+                    {
+                        AddErro(wordTypeRuleResponse.ToString());
+                        return false;
+                    }
+                } catch (Exception ex)
+                {
+                    AddErro(ex.Message);
                 }
+
+                return true;
+            }
+        }
+
+
+        public abstract class WordTypeRuleBase
+        {
+            protected abstract ConjugationType[] ValidConjugationTypes { get; }
+            public abstract string IsValid(Command request);
+
+            public bool IsDuplicate(Command request)
+            {
+                var conjugationTypes = request.Conjugations.Select(e => e.ConjugationType);
+
+                var hasDuplicateTypes = conjugationTypes
+                    .GroupBy(e => e).Any(i => i.Count() > 1);
+
+                return hasDuplicateTypes;
+            } 
+
+            public bool HasAllConjugations(Command request)
+            {
+                var conjugationTypes = request.Conjugations.Select(e => e.ConjugationType);
+
+                var hasAllValidConjugations =
+                    ValidConjugationTypes.Any(e => !conjugationTypes.Contains(e));
+
+                return hasAllValidConjugations;
+            }
+
+            public bool ExceededLimitConjugations(Command request)
+            {
+                return request.Conjugations.Count() > ValidConjugationTypes.Count();
+            }
+        }
+
+        public class VerboRule : WordTypeRuleBase
+        {
+            protected override ConjugationType[] ValidConjugationTypes => new ConjugationType[]
+            {
+                    ConjugationType.ThirdPerson,
+                    ConjugationType.Past,
+                    ConjugationType.Participle,
+                    ConjugationType.Gerundio
+            };
+
+            public override string IsValid(Command request)
+            {
+                if (ExceededLimitConjugations(request))
+                    return "Limite de conjugações para esse tipo excedido.";
+
+                if (IsDuplicate(request))
+                    return "Você está usando duas ou mais conjugações do mesmo tipo.";
+                
+                if (HasAllConjugations(request))
+                    return "Conjugação(es) requeridas não atendidas.";
+
+                return "";
+            }
+        }
+
+        public class SubstantivoRule : WordTypeRuleBase
+        {
+            protected override ConjugationType[] ValidConjugationTypes => new ConjugationType[]
+            {
+                    ConjugationType.Plural
+            };
+
+            public override string IsValid(Command request)
+            {
+                if (ExceededLimitConjugations(request))
+                    return "Limite de conjugações para esse tipo excedido.";
+
+                if (HasAllConjugations(request))
+                    return "Conjugação(es) requeridas não atendidas.";
+
+                return "";
+            }
+        }
+
+        public class MappingProfile : Profile
+        {
+            public MappingProfile()
+            {
+                CreateMap<Command, Word>();
+                CreateMap<Word, Response>();
+                CreateMap<CommandConjugation, Conjugation>();
+                CreateMap<Conjugation, CommandConjugation>();
             }
         }
 
