@@ -30,17 +30,17 @@ namespace MeuDicionarioV2.Features.RevisionCtl
             return CustomResponse(result);
         }
 
-        [HttpDelete()]
-        [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<IActionResult> Remove([FromBody] int[] list)
-        {
-            var result = await _mediator.Send(new RemoveRangeRevision.Command
-            {
-                list = list
-            });
+        //[HttpDelete()]
+        //[ProducesResponseType((int)HttpStatusCode.NoContent)]
+        //[ProducesResponseType((int)HttpStatusCode.NotFound)]
+        //public async Task<IActionResult> Remove([FromBody] int[] list)
+        //{
+        //    var result = await _mediator.Send(new RemoveRangeRevision.Command
+        //    {
+        //        list = list
+        //    });
 
-            return CustomResponse(result);
-        }
+        //    return CustomResponse(result);
+        //}
     }
 }

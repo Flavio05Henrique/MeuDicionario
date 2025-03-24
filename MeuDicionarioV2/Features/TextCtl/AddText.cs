@@ -66,10 +66,10 @@ namespace MeuDicionarioV2.Features.TextCtl
                     return Error<Response>();
                 }
 
-                var has = await _dbContext.Texts
+                var hasText = await _dbContext.Texts
                     .AnyAsync(c => c.Title.Equals(request.Title), cancellationToken);
 
-                if (has)
+                if (hasText)
                 {
                     AddErro("Texto com esse titulo já existe.");
                     return Error<Response>(HttpStatusCode.Conflict);
@@ -82,10 +82,10 @@ namespace MeuDicionarioV2.Features.TextCtl
                     WordsInText = TextFunctions.SearchAllWordsInText(request.TextItSelf)
                 };
 
-                await TextFunctions.SetRelationTextWord(_dbContext, text, cancellationToken);
-
                 await _dbContext.Texts.AddAsync(text, cancellationToken);
                 await _dbContext.SaveChangesAsync(cancellationToken);
+
+                await TextFunctions.SetRelationTextWord(_dbContext, text, cancellationToken);
 
                 var response = _mapper.Map<Response>(text);
                 return Success(response);

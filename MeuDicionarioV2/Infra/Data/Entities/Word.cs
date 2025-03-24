@@ -16,6 +16,6 @@ namespace MeuDicionariov2.Infra.Data.Entities
         public bool Revision {  get; set; }
         public int RevisionGap { get; set; }
         public int RevisionScore { get; set; }
-        public List<Conjugation>? Conjugations { get; set; }
+        public virtual List<Conjugation>? Conjugations { get; set; }
     }
 }

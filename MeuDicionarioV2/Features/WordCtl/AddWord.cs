@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Azure.Core;
 using FluentValidation;
-using MediatR;
 using MeuDicionariov2.Infra.Data;
 using MeuDicionariov2.Infra.Data.Entities;
 using MeuDicionarioV2.Core.Enums;
@@ -45,6 +43,10 @@ namespace MeuDicionarioV2.Features.WordCtl
                 RuleFor(c => c.Meaning)
                     .NotEmpty()
                     .WithMessage("O significado não pode ser vazio.");
+
+                RuleFor(c => c.WordType)
+                    .NotEmpty()
+                    .WithMessage("O Tipo não pode ser vazio.");
             }
         }
 
@@ -93,7 +95,9 @@ namespace MeuDicionarioV2.Features.WordCtl
                     return Error<Response>(HttpStatusCode.Conflict);
                 }
 
-                if(!ValidConjugations(request))
+                if (request.Conjugations is null) request.Conjugations = new List<CommandConjugation>();
+
+                if (!ValidConjugations(request))
                 {
                     return Error<Response>();
                 }
@@ -134,9 +138,13 @@ namespace MeuDicionarioV2.Features.WordCtl
                         AddErro(wordTypeRuleResponse.ToString());
                         return false;
                     }
-                } catch (Exception ex)
-                {
-                    AddErro(ex.Message);
+                } catch (Exception ex) 
+                { 
+                    if(request.Conjugations.Count() != 0)
+                    {
+                        AddErro("Esse tipo de palavra não se conjuga");
+                        return false;
+                    }
                 }
 
                 return true;
@@ -169,25 +177,26 @@ namespace MeuDicionarioV2.Features.WordCtl
                 return hasAllValidConjugations;
             }
 
-            public bool ExceededLimitConjugations(Command request)
+            public bool ExcededLimitConjugations(Command request)
             {
                 return request.Conjugations.Count() > ValidConjugationTypes.Count();
             }
         }
 
-        public class VerboRule : WordTypeRuleBase
+        public class VerbRule : WordTypeRuleBase
         {
             protected override ConjugationType[] ValidConjugationTypes => new ConjugationType[]
             {
                     ConjugationType.ThirdPerson,
-                    ConjugationType.Past,
-                    ConjugationType.Participle,
-                    ConjugationType.Gerundio
+                    ConjugationType.Preterite,
+                    ConjugationType.PresentContinuous,
+                    ConjugationType.PaticiplePresent,
+                    ConjugationType.PaticiplePass
             };
 
             public override string IsValid(Command request)
             {
-                if (ExceededLimitConjugations(request))
+                if (ExcededLimitConjugations(request))
                     return "Limite de conjugações para esse tipo excedido.";
 
                 if (IsDuplicate(request))
@@ -200,7 +209,7 @@ namespace MeuDicionarioV2.Features.WordCtl
             }
         }
 
-        public class SubstantivoRule : WordTypeRuleBase
+        public class NounRule : WordTypeRuleBase
         {
             protected override ConjugationType[] ValidConjugationTypes => new ConjugationType[]
             {
@@ -209,7 +218,7 @@ namespace MeuDicionarioV2.Features.WordCtl
 
             public override string IsValid(Command request)
             {
-                if (ExceededLimitConjugations(request))
+                if (ExcededLimitConjugations(request))
                     return "Limite de conjugações para esse tipo excedido.";
 
                 if (HasAllConjugations(request))

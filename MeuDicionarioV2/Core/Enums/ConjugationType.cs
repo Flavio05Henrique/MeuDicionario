@@ -6,13 +6,15 @@ namespace MeuDicionarioV2.Core.Enums
     {
         [Description("ThirdPerson")]
         ThirdPerson,
-        [Description("Past")]
-        Past,
+        [Description("Preterite")]
+        Preterite,
+        [Description("PresentContinuous")]
+        PresentContinuous,
+        [Description("PaticiplePresent")]
+        PaticiplePresent,
+        [Description("PaticiplePass")]
+        PaticiplePass,
         [Description("Plural")]
-        Plural,
-        [Description("Participle")]
-        Participle,
-        [Description("Gerundio")]
-        Gerundio
+        Plural
     }
 }

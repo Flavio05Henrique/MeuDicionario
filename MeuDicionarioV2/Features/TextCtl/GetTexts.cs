@@ -2,8 +2,10 @@
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using MeuDicionariov2.Infra.Data;
+using MeuDicionariov2.Infra.Data.Entities;
 using MeuDicionarioV2.Core.Messaging;
 using MeuDicionarioV2.Core.Paginator;
+using MeuDicionarioV2.Infra.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MeuDicionarioV2.Features.TextCtl
@@ -13,13 +15,15 @@ namespace MeuDicionarioV2.Features.TextCtl
         public class Command : QueryParams, IRequest<Result<QueryResponse<Response>>>
         {
             public string? Search { get; set; }
+            public bool WithWords { get; set; }
         }
 
         public class Response
         {
-             public int Id {  get; set; }
+            public int Id {  get; set; }
             public string Title { get; set; }
             public string TextItSelf { get; set; }
+            public List<Word> Words { get; set; }
         }
 
         public class Handler : BaseHandler<Command, Result<QueryResponse<Response>>>
@@ -49,6 +53,19 @@ namespace MeuDicionarioV2.Features.TextCtl
                     .ProjectTo<Response>(_mapper.ConfigurationProvider)
                     .ToListAsync(cancellationToken);
 
+                if(request.WithWords)
+                {
+                    foreach(var item in response)
+                    {
+                        item.Words = await _dbContex.TextWords
+                            .Where(e => e.TextId == item.Id)
+                            .Include(e => e.Word)
+                            .ThenInclude(e => e.Conjugations)
+                            .Select(e => e.Word)
+                            .ToListAsync(cancellationToken);
+                    }
+                }
+
                 return Success(new QueryResponse<Response>
                 {
                     Items = response,
@@ -56,6 +73,14 @@ namespace MeuDicionarioV2.Features.TextCtl
                     Page = request.Page.Value,
                     PageSize = request.PageSize
                 });
+            }
+        }
+
+        public class MappingProfile : Profile
+        {
+            public MappingProfile()
+            {
+                CreateMap<Text, Response>();
             }
         }
 

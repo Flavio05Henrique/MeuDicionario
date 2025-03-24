@@ -4,14 +4,17 @@ namespace MeuDicionarioV2.Core.Enums
 {
     public enum WordType
     {
-        [Description("Substanbtivo")]
-        Substantivo,
-        [Description("Verbo")]
-        Verbo,
-        [Description("Adjetivo")]
-        Adjetivo,
-        [Description("Adverbio")]
-        Adverbio
-
+        [Description("Noun")]
+        Noun,
+        [Description("Verb")]
+        Verb,
+        [Description("Adjective")]
+        Adjective,
+        [Description("Adverb")]
+        Adverb,
+        [Description("Preposition")]
+        Preposition,
+        [Description("Conjunction")]
+        Conjunction
     }
 }
