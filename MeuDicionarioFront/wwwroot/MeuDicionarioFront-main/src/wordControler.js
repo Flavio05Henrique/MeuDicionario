@@ -1,7 +1,7 @@
 import {  apiMessage, showMessage } from "./messageManager.js"
 import { addOneInView, addSomeInView, changeValueCardWord, closeOpenElementsView, setListWord, viewUpdate, wordCardContainerObj } from "./viewManager.js"
 
-const url = "https://localhost:7167/palavra"
+const url = "https://localhost:7167/word"
 const skipTake = {
     'skip': 3,
     'take': 3, 
@@ -19,8 +19,10 @@ export const addNewWord = (obj) => {
     })
     .then(response => response.json())
     .then(date =>  {
+        console.log(date)
+        console.log(obj)
         addOneInView(date)
-        skipTake.add += 1
+        // skipTake.add += 1
     })
     .catch(error => {
         messageError(error)

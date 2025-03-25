@@ -56,13 +56,19 @@ namespace MeuDicionarioV2.Features.WordCtl
             public ConjugationType ConjugationType { get; set; }
         }
 
+        public class CommandConjugationResponse
+        {
+            public string ConjugationItSelf { get; set; }
+            public string ConjugationType { get; set; }
+        }
+
         public class Response
         {
             public string Name { get; set; }
             public string Meaning { get; set; }
             public DateTime LastSeen { get; set; }
             public WordType WordType { get; set; }
-            public List<CommandConjugation> Conjugations { get; set; }
+            public List<CommandConjugationResponse> Conjugations { get; set; }
         }
 
         public class Handler : BaseHandler<Command, Result<Response>>
@@ -236,6 +242,7 @@ namespace MeuDicionarioV2.Features.WordCtl
                 CreateMap<Word, Response>();
                 CreateMap<CommandConjugation, Conjugation>();
                 CreateMap<Conjugation, CommandConjugation>();
+                CreateMap<Conjugation, CommandConjugationResponse>();
             }
         }
 

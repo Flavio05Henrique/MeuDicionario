@@ -31,37 +31,6 @@
     ]
   },
   {
-    "ContainingType": "MeuDicionarioV2.Features.RevisionCtl.RevisionController",
-    "Method": "Remove",
-    "RelativePath": "revision",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "list",
-        "Type": "System.Int32[]",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 204
-      },
-      {
-        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 404
-      }
-    ]
-  },
-  {
     "ContainingType": "MeuDicionarioV2.Features.TextCtl.TextContoller",
     "Method": "Add",
     "RelativePath": "texts",

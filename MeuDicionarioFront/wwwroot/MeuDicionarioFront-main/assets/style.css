@@ -565,13 +565,16 @@ button {
   border: none;
   color: var(--cor-1);
 }
+.popup__container select {
+  font-size: 2rem;
+  cursor: pointer;
+}
 .popup__container .card__infos {
   display: flex;
   flex-direction: column;
   background-color: var(--cor-2);
-  width: 600px;
-  padding: 5px;
   gap: 5px;
+  border-radius: 3px;
 }
 .popup__container .card__infos .item {
   display: flex;
@@ -589,6 +592,42 @@ button {
   font-size: 1.8rem;
   text-align: justify;
 }
+.popup__container .card__infos button {
+  width: auto;
+  height: auto;
+  font-size: 2rem;
+  align-self: flex-end;
+  background-color: var(--cor-1);
+  color: var(--cor-2);
+  padding: 5px;
+  border-radius: 5px;
+}
+.popup__container .card__infos input {
+  font-size: 2rem;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+.popup__container .card__infos .add_word_card_popUp {
+  width: 450px;
+  padding: 10px;
+}
+.popup__container .card__infos .add_word_card_popUp .add_word_form {
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+}
+.popup__container .card__infos .add_word_card_popUp .add_word_form div {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+}
+.popup__container .card__infos .add_word_card_popUp .add_word_form label {
+  color: var(--cor-1);
+}
+.popup__container .card__infos .add_word_card_popUp .add_word_form button {
+  align-self: flex-end;
+}
 .popup__container .card__infos .newText {
   display: flex;
   flex-direction: column;
@@ -603,16 +642,6 @@ button {
 .popup__container .card__infos .newText textarea {
   font-size: 2rem;
   height: 300px;
-}
-.popup__container .card__infos .newText button {
-  width: auto;
-  height: auto;
-  font-size: 2rem;
-  align-self: flex-end;
-  background-color: var(--cor-1);
-  color: var(--cor-2);
-  padding: 5px;
-  border-radius: 5px;
 }
 
 .heightZero {

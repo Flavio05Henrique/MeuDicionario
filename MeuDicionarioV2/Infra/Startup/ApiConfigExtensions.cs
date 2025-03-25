@@ -14,21 +14,20 @@ namespace MeuDicionarioV2.Infra.Startup
                 .AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddEndpointsApiExplorer();
 
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("MeuDicionario", builder => builder
-            //        .AllowAnyOrigin()
-            //        .AllowAnyMethod()
-            //        .AllowAnyHeader());
-            //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MeuDicionario", builder => builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
         }
         public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            //app.UseCors("MeuDicionario");
+            app.UseCors("MeuDicionario");
 
             app.UseEndpoints(endpoints =>
             {

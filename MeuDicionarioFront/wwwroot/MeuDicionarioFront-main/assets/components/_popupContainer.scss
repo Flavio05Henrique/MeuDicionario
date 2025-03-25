@@ -16,13 +16,17 @@
         color: var(--cor-1);
     }
 
+    select {
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
     .card__infos {
         display: flex;
         flex-direction: column;
         background-color: var(--cor-2);
-        width: 600px;
-        padding: 5px;
         gap: 5px;
+        border-radius: 3px;
 
         .item {
             display: flex;
@@ -43,6 +47,49 @@
             }
         }
 
+        button {
+            width: auto;
+            height: auto;
+            font-size: 2rem;
+            align-self: flex-end;
+            background-color: var(--cor-1);
+            color: var(--cor-2);
+            padding: 5px;
+            border-radius: 5px ;
+        }
+
+        input {
+            font-size: 2rem;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .add_word_card_popUp {
+            width: 450px;
+            padding: 10px;
+
+            .add_word_form {
+                display: flex;
+                flex-direction: column;
+
+                font-size: 2rem;
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5px 0;
+                }
+
+                label {
+                    color: var(--cor-1);
+                }
+
+                button {
+                    align-self: flex-end;
+                }
+            }
+        }
+
         .newText {
             display: flex;
             flex-direction: column;
@@ -58,17 +105,6 @@
             textarea {
                 font-size: 2rem;
                 height: 300px;
-            }
-
-            button {
-                width: auto;
-                height: auto;
-                font-size: 2rem;
-                align-self: flex-end;
-                background-color: var(--cor-1);
-                color: var(--cor-2);
-                padding: 5px;
-                border-radius: 5px ;
             }
         }
     }

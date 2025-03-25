@@ -1,5 +1,6 @@
 import { binarySearch } from "./binarySearch.js"
 import { showMessage } from "./messageManager.js"
+import { openPopup } from "./popupManager.js"
 import { addNewWord, changeWord, excludeWord, findByWord, getSome } from "./wordControler.js"
 
 const viewWordsContainer = document.querySelector('[data="secWords"]')
@@ -35,22 +36,22 @@ viewWordsContainer.addEventListener('click', e => {
     }
 })
 
-formAddNewWord.addEventListener("submit", e => {
-    e.preventDefault()
+// formAddNewWord.addEventListener("submit", e => {
+//     e.preventDefault()
 
-    const nameInput = formAddNewWord.querySelector("#word")
-    const meaningInput = formAddNewWord.querySelector("#wordDescription")
+//     const nameInput = formAddNewWord.querySelector("#word")
+//     const meaningInput = formAddNewWord.querySelector("#wordDescription")
 
-    const value = {
-        'Name': nameInput.value,
-        'Meaning' : meaningInput.value
-    }
+//     const value = {
+//         'Name': nameInput.value,
+//         'Meaning' : meaningInput.value
+//     }
 
-    nameInput.value = ""
-    meaningInput.value = ""
+//     nameInput.value = ""
+//     meaningInput.value = ""
 
-    addNewWord(value)
-})
+//     addNewWord(value)
+// })
 
 search.addEventListener("submit", e => {
     e.preventDefault()
@@ -197,28 +198,110 @@ export const changeValueCardWord = (wordObj) => {
 }
 
 export const closeOpenElementsView = (element = null, openClose = true) => {
-    if(openCloseObj == null) buildOpenCloseObj()
+    openPopup("cardAddWord", true)
+    activeWordTypeChanges()
     
-    if(element) {
-        if(openClose) {
-            element.classList.toggle('heightZero')
-            openCloseObj.wordsContainer.classList.toggle('wordsReduce')
-        } else {
-            element.classList.remove('heightZero')
-            openCloseObj.wordsContainer.classList.add('wordsReduce')
-        }
-        
-        if(openCloseObj.lastElement) {
-            if(!openCloseObj.lastElement.id.includes(element.id)) {
-                element.classList.remove('heightZero')
-                openCloseObj.wordsContainer.classList.add('wordsReduce')
-                openCloseObj.lastElement.classList.add('heightZero')
-            } 
-        }
-        openCloseObj.lastElement = element
-    }
 }
 
+const activeWordTypeChanges = () => {
+    const wordTypeOptions = document.querySelector('[data="addWord-options"]')
+    const addWordForm = document.querySelector('[data="addWord-form"]')
+
+    wordTypeOptions.addEventListener("change", e => {
+        switch(e.target.value) {
+            case 'Verb': setFromForVerb()
+            break;
+            case 'Noun': setFromForNoun()
+            break;
+            default : setFormForAll()
+            break;
+        }
+    })
+
+    addWordForm.addEventListener("submit", e => {
+        e.preventDefault()
+
+        const word = {
+            'name': "",
+            'meaning': "",
+            'wordType': "",
+            'isRegular': true,
+            'conjugations': []
+        }
+
+        const infoBase = addWordForm.querySelectorAll('[data-n]')
+        const infoConjugations = addWordForm.querySelectorAll('[data-c]')
+        console.log(infoBase, infoConjugations)
+        infoBase.forEach(i => word[i.id] = i.value)
+        word.conjugations = Array.from(infoConjugations).map(i => ({'conjugationItSelf': i.value, 'conjugationType': i.id}))
+        word.wordType = wordTypeOptions.value
+        console.log(word)
+        addNewWord(word)
+    })
+
+    const setFromForVerb = () => {
+        addWordForm.innerHTML = `
+             <div>
+                <label for="name">Palavra</label>
+                <input type="text" id="name" required data-n>
+            </div>
+            <div>
+                <label for="meaning">Significado</label>
+                <input type="text" id="meaning" required data-n>
+            </div>
+            <div>
+                <label for="ThirdPerson">Terceira pessoa</label>
+                <input type="text" id="ThirdPerson" required data-c>
+            </div>
+            <div>
+                <label for="Preterite">Preterite</label>
+                <input type="text" id="Preterite" required data-c>
+            </div>
+            <div>
+                <label for="PresentContinuous">Present continuous</label>
+                <input type="text" id="PresentContinuous" required data-c>
+            </div>
+            <div>
+                <label for="PaticiplePresent">Paticiple present</label>
+                <input type="text" id="PaticiplePresent" required data-c>
+            </div>
+            <div>
+                <label for="PaticiplePass">Paticiple pass</label>
+                <input type="text" id="PaticiplePass" required data-c>
+            </div>
+        `
+    }
+
+    const setFromForNoun = () => {
+        addWordForm.innerHTML = `
+            <div>
+                <label for="name">Palavra</label>
+                <input type="text" id="name" required data-n>
+            </div>
+            <div>
+                <label for="meaning">Significado</label>
+                <input type="text" id="meaning" required data-n>
+            </div>
+            <div>
+                <label for="Plural">Plural</label>
+                <input type="text" id="Plural" required data-c>
+            </div>
+        `
+    }
+
+    const setFormForAll = () => {
+        addWordForm.innerHTML = `
+            <div>
+                <label for="name">Palavra</label>
+                <input type="text" id="name" required data-n>
+            </div>
+            <div>
+                <label for="meaning">Significado</label>
+                <input type="text" id="meaning" required data-n>
+            </div>
+        `
+    }
+}
 const buildOpenCloseObj = () => {
     openCloseObj = {
         'wordsContainer': document.querySelector('[data-words]'),
